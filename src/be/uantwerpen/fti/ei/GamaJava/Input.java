@@ -1,7 +1,5 @@
 package be.uantwerpen.fti.ei.GamaJava;
 
-import be.uantwerpen.fti.ei.GamaJava.visualisation.GraphicsContext;
-
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.LinkedList;
@@ -10,9 +8,8 @@ public class Input {
     public enum Inputs {LEFT, RIGHT, UP, DOWN, SPACE};
     private LinkedList<Inputs> keyInputs;
 
-    public Input(GraphicsContext gr) {
-        gr.getFrame().addKeyListener(new KeyInputAdapter());
-        keyInputs = new LinkedList<Inputs>();
+    public Input( ) {
+
     }
     public boolean inputAvailable() {
         return keyInputs.size() > 0;
