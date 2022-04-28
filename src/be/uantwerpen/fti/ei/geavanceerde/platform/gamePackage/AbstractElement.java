@@ -1,16 +1,29 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage;
 
-public abstract class AbstractElement implements Drawable {
-    private int x;
-    private int y;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.MovementComponent;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.PositionComponent;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractInput;
 
-    public AbstractElement(int x, int y) {
-        this.x = x;
-        this.y = y;
+public abstract class AbstractElement implements Drawable {
+    private final PositionComponent positionComponent;
+    private final MovementComponent movementComponent;
+    private AbstractInput.Inputs input;
+
+    public AbstractElement(int x, int y , int width, int height){
+        this.positionComponent = new PositionComponent(x,y,height,width);
+        this.movementComponent = new MovementComponent();
     }
 
-    public int getX() { return x; }
-    public int getY() { return y; }
 
-    public abstract void draw();
+    public PositionComponent getPosition(){
+        return  positionComponent;
+    }
+
+    public MovementComponent getMovement(){
+        return movementComponent;
+    }
+
+    public AbstractInput.Inputs getInput(){
+        return input;
+    }
 }

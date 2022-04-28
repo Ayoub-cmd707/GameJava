@@ -4,10 +4,13 @@ import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.AbstractFactory;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Game;
 import be.uantwerpen.fti.ei.geavanceerde.platform.visualistationPackage.j2dFactory;
 
-public class Main {
-    public static void main(String[] args) throws InterruptedException{
-        //AbstractFactory f = new j2dFactory();
+import java.io.IOException;
 
-        Game game = new Game();
+public class Main {
+    public static void main(String[] args) throws InterruptedException, IOException {
+        AbstractFactory f = new j2dFactory("config.txt");
+
+        Game game = new Game(f);
+        game.run("config.txt");
     }
 }
