@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d73b273-421a-4152-82e7-5891a3166f7e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/GraphicsContent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/Window.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/AbstractElement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/AbstractFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/AbstractInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Drawable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game_config.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics_config.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/Input.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/Input.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/visualisation/GraphicsContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/Game.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/GraphicsContent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/Input.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/GamaJava/Window.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +26,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -94,6 +102,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/snakeGraphicsExample" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Main (1)">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="be.uantwerpen.fti.ei.GamaJava.Main" />
@@ -138,6 +151,8 @@
       <workItem from="1650210451410" duration="1594000" />
       <workItem from="1650224563408" duration="4564000" />
       <workItem from="1650280066573" duration="887000" />
+      <workItem from="1650380201573" duration="3746000" />
+      <workItem from="1650454456092" duration="3532000" />
     </task>
     <servers />
   </component>
