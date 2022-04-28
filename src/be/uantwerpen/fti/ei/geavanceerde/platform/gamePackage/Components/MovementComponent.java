@@ -11,12 +11,12 @@ public class MovementComponent {
     private boolean left,right,jump;
     private int xSpeed;
     public MovementComponent() {
-        this.playerSpeed = 2;
+        this.playerSpeed = 2.0f;
         this.inAir = false;
-        this.airSpeed = 1;
-        this.gravity = 9;
-        this.jumpSpeed = 1;
-        this.fallSpeedAfterCollision = 1;
+        this.airSpeed = 0.5f;
+        this.gravity = 5f;
+        this.jumpSpeed = 1f;
+        this.fallSpeedAfterCollision = 1f;
         this.isMoving = false;
     }
 

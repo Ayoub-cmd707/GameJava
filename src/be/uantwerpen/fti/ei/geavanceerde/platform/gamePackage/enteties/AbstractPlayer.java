@@ -7,4 +7,6 @@ public abstract class AbstractPlayer extends AbstractElement {
     public AbstractPlayer(int x, int y, int width, int height) {
         super(x, y, width, height);
     }
+
+
 }

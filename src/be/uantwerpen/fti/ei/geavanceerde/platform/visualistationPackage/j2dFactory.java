@@ -1,9 +1,6 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.visualistationPackage;
 
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.AbstractFactory;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractBackground;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractInput;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractLevel;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractPlayer;
 import be.uantwerpen.fti.ei.geavanceerde.platform.helper.ConfigFileReader;
 
@@ -32,6 +29,11 @@ public class j2dFactory extends AbstractFactory {
     @Override
     public AbstractPlayer createPlayer(int x, int y, int hitboxWidth, int hitboxHeight) throws IOException {
         return new j2dPlayer(grCtx, x, y,hitboxWidth,hitboxHeight);
+    }
+
+    @Override
+    public j2dInputs createInputs() {
+        return new j2dInputs(grCtx.getFrame());
     }
 
     /*@Override

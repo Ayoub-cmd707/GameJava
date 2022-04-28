@@ -26,4 +26,8 @@ public abstract class AbstractElement implements Drawable {
     public AbstractInput.Inputs getInput(){
         return input;
     }
+
+    public void setDirection(AbstractInput.Inputs input) {
+        this.input = input;
+    }
 }

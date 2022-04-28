@@ -1,5 +1,6 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.visualistationPackage;
 
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.PositionComponent;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractPlayer;
 
 import javax.imageio.ImageIO;
@@ -13,7 +14,7 @@ public class j2dPlayer extends AbstractPlayer {
 
     private final GraphicsContext graphicsContext;
     private BufferedImage player;
-
+    private PositionComponent positionComponent = getPosition();
 
     public j2dPlayer(GraphicsContext grCtx, int x, int y, int hitboxWidth, int hitboxHeight) throws IOException {
         super(x,y,hitboxWidth,hitboxHeight);
@@ -24,7 +25,8 @@ public class j2dPlayer extends AbstractPlayer {
     @Override
     public void visualize() {
         Graphics2D graphics2D = graphicsContext.getG2d();
-        graphics2D.drawImage(player,10,10,64,64,null);
+        //System.out.println((int) positionComponent.x);
+        graphics2D.drawImage(player,(int) positionComponent.x,(int) positionComponent.y,64,64,null);
 
     }
 
