@@ -1,2 +1,2 @@
 ScreenWidth:1280
-ScreenHeight:800
+ScreenHeight:768

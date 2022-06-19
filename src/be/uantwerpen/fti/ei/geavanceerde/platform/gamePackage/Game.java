@@ -5,6 +5,7 @@ import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractB
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractInput;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractMap;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractPlayer;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.utilities.Maps;
 import be.uantwerpen.fti.ei.geavanceerde.platform.helper.ConfigFileReader;
 
 import java.io.IOException;
@@ -27,10 +28,10 @@ public class Game {
     private AbstractInput inputs;
 
     //map settins
-    public final static int TILES_DEFAULT_SIZE = 48;
-    public final static int TILES_IN_WIDTH = 30;
-    public final static int TILES_IN_HEIGHT = 16;
-    public final static int TILES_SIZE = (int)(TILES_DEFAULT_SIZE);
+    public final static int tilePictureSize = 64;
+    public final static int tilesWidth= 10;
+    public final static int tilesHeight = 12;
+    public final static int tileSize = (int)(tilePictureSize);
 
     //voor run
     double timingsPerFrame = 1000000000.0 / 61; //
@@ -52,10 +53,12 @@ public class Game {
         inputs = abstractFactory.createInputs();
         abstractBackground = abstractFactory.background();
         abstractPlayer = abstractFactory.createPlayer(10,10,64,64);
-        map = abstractFactory.createAMap(Maps.map1,TILES_IN_HEIGHT,TILES_IN_WIDTH,TILES_SIZE);
+        map = abstractFactory.createAMap(Maps.map1,tilesHeight,tilesWidth,tileSize);
         drawables = new ArrayList<>();
 
+
         drawables.add(abstractBackground);
+        drawables.add(map);
         drawables.add(abstractPlayer);
 
 

@@ -2,10 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d73b273-421a-4152-82e7-5891a3166f7e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/AbstractElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/AbstractElement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/AbstractFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/AbstractFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/MovementComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/MovementComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/PositionComponent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/Movement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/Movement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractLevel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/GraphicsContext$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/GraphicsContext$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/GraphicsContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/GraphicsContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dInput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dLevel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/utilities/Maps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +106,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive - Universiteit Antwerpen/Extrahelpers/Geavanceerde_Programmeertechnieken_Project" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -149,7 +164,8 @@
       <workItem from="1651654167287" duration="43000" />
       <workItem from="1651740611253" duration="3436000" />
       <workItem from="1655575317254" duration="7231000" />
-      <workItem from="1655650420527" duration="4504000" />
+      <workItem from="1655650420527" duration="8457000" />
+      <workItem from="1655673546334" duration="2792000" />
     </task>
     <servers />
   </component>

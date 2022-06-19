@@ -4,6 +4,7 @@ import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Drawable;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -22,20 +23,25 @@ public abstract class AbstractMap implements Drawable {
     }
 
     public BufferedImage GetSpriteSheet(String fileName) {
-        BufferedImage img = null;
-        InputStream is = AbstractMap.class.getResourceAsStream(fileName);
+        System.out.println("filename is: "+fileName);
+        BufferedImage bufferedImage = null;
+
+        InputStream inputStream = AbstractMap.class.getResourceAsStream(fileName);
+        System.out.println("Inputstream is: " + inputStream);
         try {
-            img = ImageIO.read(is);
+
+                bufferedImage = ImageIO.read(new File(fileName));
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            try {
-                is.close();
+            /*try {
+                if (inputStream != null)
+                    inputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
-            }
+            }*/
         }
-        return img;
+        return bufferedImage;
     }
 
 
