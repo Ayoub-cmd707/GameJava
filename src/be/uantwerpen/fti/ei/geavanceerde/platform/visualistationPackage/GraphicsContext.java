@@ -24,6 +24,10 @@ public class GraphicsContext {
     private int offsetMaxY = 800 - viewPortY;
     private int offsetMinX = 0;
     private int offsetMinY = 0;
+    public int getCamX() {return camX;}
+    public void setCamX(int camX) {this.camX = camX;}
+    public int getCamY() {return camY;}
+    public void setCamY(int camY) {this.camY = camY;}
 
     public Graphics2D getG2d() {
         return g2d;

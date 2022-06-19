@@ -1,7 +1,9 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage;
 
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.Movement;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractBackground;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractInput;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractMap;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractPlayer;
 import be.uantwerpen.fti.ei.geavanceerde.platform.helper.ConfigFileReader;
 
@@ -13,12 +15,32 @@ public class Game {
 
 
 
+
+
     private final AbstractFactory abstractFactory;
     private AbstractPlayer abstractPlayer;
+    private AbstractBackground abstractBackground;
+    private AbstractMap map;
     private Movement movement;
     HashMap<String, Integer> data;
     private ArrayList<Drawable> drawables;
     private AbstractInput inputs;
+
+    //map settins
+    public final static int TILES_DEFAULT_SIZE = 48;
+    public final static int TILES_IN_WIDTH = 30;
+    public final static int TILES_IN_HEIGHT = 16;
+    public final static int TILES_SIZE = (int)(TILES_DEFAULT_SIZE);
+
+    //voor run
+    double timingsPerFrame = 1000000000.0 / 61; //
+    double updater =  1000000000.0 / 61;
+    long pTime = System.nanoTime();
+    long lastCheck = 0L;
+    double deltaU = 0;
+    double deltaF = 0;
+    int fps = 0;
+    int ups = 0;
 
 
     public Game(AbstractFactory abstractFactory) throws IOException {
@@ -28,30 +50,29 @@ public class Game {
 
     public void initGame() throws IOException {
         inputs = abstractFactory.createInputs();
+        abstractBackground = abstractFactory.background();
         abstractPlayer = abstractFactory.createPlayer(10,10,64,64);
+        map = abstractFactory.createAMap(Maps.map1,TILES_IN_HEIGHT,TILES_IN_WIDTH,TILES_SIZE);
         drawables = new ArrayList<>();
 
+        drawables.add(abstractBackground);
         drawables.add(abstractPlayer);
+
+
         movement = new Movement(abstractPlayer.getMovement(), abstractPlayer.getPosition());
+
     }
 
 
     public void run(final String configFile){
         data = ConfigFileReader.getConfigFileReaderInstance().loadOrCreateConfig(configFile);
         abstractFactory.setGameDimensions((int)(data.get("ScreenWidth")), (int)(data.get("ScreenHeight")));
-        double timePerFrame = 1000000000.0 / 61;
-        double timerUpdate =  1000000000.0 / 61;
-        long previousTime = System.nanoTime();
-        int fps = 0;
-        int ups = 0;
-        long lastCheck = 0L;
-        double deltaU = 0;
-        double deltaF = 0;
+
         while (true){
-            long currentTime = System.nanoTime();
-            deltaU += (currentTime - previousTime) / timerUpdate;
-            deltaF += (currentTime - previousTime) / timePerFrame;
-            previousTime = currentTime;
+            long cTime = System.nanoTime();
+            deltaU += (cTime - pTime) / updater;
+            deltaF += (cTime - pTime) / timingsPerFrame;
+            pTime = cTime;
             if(deltaU >= 1){
 
                 //STATUS

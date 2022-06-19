@@ -1,12 +1,12 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems;
 
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.MovementComponent;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.PositionComponent;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.PositioningComponent;
 
 public class Movement {
-    private PositionComponent positionComponent;
+    private PositioningComponent positionComponent;
     private MovementComponent movementComponent;
-    public Movement(MovementComponent movementComponent, PositionComponent positionComponent){
+    public Movement(MovementComponent movementComponent, PositioningComponent positionComponent){
         this.movementComponent = movementComponent;
         this.positionComponent = positionComponent;
     }

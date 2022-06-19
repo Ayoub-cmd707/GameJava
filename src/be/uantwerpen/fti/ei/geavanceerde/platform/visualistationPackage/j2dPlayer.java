@@ -1,6 +1,6 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.visualistationPackage;
 
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.PositionComponent;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.PositioningComponent;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractPlayer;
 
 import javax.imageio.ImageIO;
@@ -8,13 +8,12 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 
 public class j2dPlayer extends AbstractPlayer {
 
     private final GraphicsContext graphicsContext;
     private BufferedImage player;
-    private PositionComponent positionComponent = getPosition();
+    private PositioningComponent positionComponent = getPosition();
 
     public j2dPlayer(GraphicsContext grCtx, int x, int y, int hitboxWidth, int hitboxHeight) throws IOException {
         super(x,y,hitboxWidth,hitboxHeight);

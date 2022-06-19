@@ -18,6 +18,7 @@ public class MovementComponent {
         this.jumpSpeed = 1f;
         this.fallSpeedAfterCollision = 1f;
         this.isMoving = false;
+
     }
 
 
