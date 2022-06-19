@@ -2,6 +2,7 @@ package be.uantwerpen.fti.ei.geavanceerde.platform.visualistationPackage;
 
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.AbstractFactory;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractBackground;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractMap;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractPlayer;
 import be.uantwerpen.fti.ei.geavanceerde.platform.helper.ConfigFileReader;
 
@@ -45,11 +46,11 @@ public class j2dFactory extends AbstractFactory {
 
 
 
-    /*
+
     @Override
-    public AbstractLevel createLevel(int[][] tileArray, int TILES_IN_HEIGHT, int TILES_IN_WIDTH, int TILES_SIZE) {
-        return new j2dLevel(grCtx,tileArray, TILES_IN_HEIGHT, TILES_IN_WIDTH, TILES_SIZE);
-    }*/
+    public AbstractMap createAMap(int[][] tileArray, int TILES_IN_HEIGHT, int TILES_IN_WIDTH, int TILES_SIZE) {
+        return new j2dMap(grCtx,tileArray, TILES_IN_HEIGHT, TILES_IN_WIDTH, TILES_SIZE);
+    }
 
     @Override
     public void setGameDimensions(int GameCellsX, int GameCellsY) {this.grCtx.setGameDimensions(GameCellsX, GameCellsY);}

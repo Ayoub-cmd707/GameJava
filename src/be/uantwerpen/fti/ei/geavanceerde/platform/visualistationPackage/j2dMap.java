@@ -24,9 +24,9 @@ public class j2dMap extends AbstractMap {
     public void importOutsideSprites(){
         BufferedImage img = GetSpriteSheet(tile_spritesheet);
         levelSprite = new BufferedImage[256];
-        for(int i =0;i<16;i++){
-            for(int j=0;j<16;j++){
-                int index = i*16 + j;
+        for(int i =0;i<1;i++){
+            for(int j=0;j<4;j++){
+                int index = i*4 + j;
                 levelSprite[index] = img.getSubimage(j*32,i*32,32,32);
             }
         }
