@@ -48,8 +48,8 @@ public class j2dFactory extends AbstractFactory {
 
 
     @Override
-    public AbstractMap createAMap(int[][] tileArray, int TILES_IN_HEIGHT, int TILES_IN_WIDTH, int TILES_SIZE) {
-        return new j2dMap(grCtx,tileArray, TILES_IN_HEIGHT, TILES_IN_WIDTH, TILES_SIZE);
+    public AbstractMap createAMap(int[][] tileMap, int height, int width, int size) {
+        return new j2dMap(grCtx,tileMap, height, width, size);
     }
 
     @Override
