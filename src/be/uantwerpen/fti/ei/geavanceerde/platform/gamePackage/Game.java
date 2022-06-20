@@ -1,5 +1,6 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage;
 
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.CollisionDetection;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.Movement;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractBackground;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractInput;
@@ -23,8 +24,10 @@ public class Game {
     private AbstractBackground abstractBackground;
     private AbstractMap abstractMap;
     private Movement movement;
+    private CollisionDetection collisionDetection;
     HashMap<String, Integer> data;
-
+    public static int gameWidth = 0;
+    public static int gameHeigth =0;
     private AbstractInput inputs;
 
     //map settins
@@ -46,22 +49,21 @@ public class Game {
     public void initGame() throws IOException {
         inputs = abstractFactory.createInputs();
         abstractBackground = abstractFactory.background();
-        abstractPlayer = abstractFactory.createPlayer(10,10,64,64);
+        abstractPlayer = abstractFactory.createPlayer(70,50,64,64);
         abstractMap = abstractFactory.createAMap(Maps.map1,tilesHeight,tilesWidth,tileSize);
-
-
-
         movement = new Movement(abstractPlayer.getMovement(), abstractPlayer.getPosition());
-
+        collisionDetection = new CollisionDetection();
     }
 
     private volatile boolean runWhile = false;
     public void run(final String configFile) {
         data = ConfigFileReader.getConfigFileReaderInstance().loadOrCreateConfig(configFile);
         abstractFactory.setGameDimensions((int)(data.get("ScreenWidth")), (int)(data.get("ScreenHeight")));
+        gameWidth = data.get("ScreenWidth");
+        gameHeigth = data.get("ScreenHeight");
         runWhile = true;
-        double timePerFrame = 1000000000.0/60;
-        double timePerUpdate = 1000000000.0/690;
+        double timePerFrame = 1000000000.0/30;
+        double timePerUpdate = 1000000000.0/30;
 
         long previousTime = System.nanoTime();
 
@@ -84,7 +86,7 @@ public class Game {
 
             if(deltaU>=1){
                 AbstractInput.Inputs input = inputs.getInputs();
-                //System.out.println(input);
+                System.out.println(input);
                 if (inputs != null) {
                     checkMovement(input);
                     abstractPlayer.setDirection(input);
@@ -117,15 +119,19 @@ public class Game {
     }
 
     private void checkMovement(AbstractInput.Inputs inputs) {
-        if (abstractPlayer.getMovement().isMoving() && inputs == AbstractInput.Inputs.LEFT) {
-            abstractPlayer.getMovement().setLeft(true);
-        }
-        else if (abstractPlayer.getMovement().isMoving() && inputs == AbstractInput.Inputs.RIGHT) {
-            abstractPlayer.getMovement().setRight(true);
-        }
-        else if(inputs == AbstractInput.Inputs.JUMPING){
-            abstractPlayer.getMovement().setJump(true);
-        }
+
+
+            if (abstractPlayer.getMovement().isMoving() && inputs == AbstractInput.Inputs.LEFT) {
+                abstractPlayer.getMovement().setLeft(true);
+                abstractPlayer.getMovement().setRight(true);
+            } else if (abstractPlayer.getMovement().isMoving() && inputs == AbstractInput.Inputs.RIGHT) {
+                abstractPlayer.getMovement().setRight(true);
+                abstractPlayer.getMovement().setLeft(false);
+            } else {
+                abstractPlayer.getMovement().setRight(false);
+                abstractPlayer.getMovement().setLeft(false);
+            }
+
         /*else if(inputs == AbstractInput.Inputs.ATTACKING){
             //FIRE BULLETS
             long elapsed = (System.nanoTime() - firingTimer) / 1000000;

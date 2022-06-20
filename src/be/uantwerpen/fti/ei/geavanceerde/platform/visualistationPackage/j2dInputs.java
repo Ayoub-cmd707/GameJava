@@ -6,58 +6,95 @@ import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class j2dInputs extends AbstractInput{
-    private static HashMap<String, Boolean> keyValues;
-
+    //private static HashMap<String, Boolean> keyValues;
+    private LinkedList<Inputs> keyValues;
     public j2dInputs(JFrame frame) {
         frame.addKeyListener(new KeyInputAdapter());
-        keyValues = new HashMap<>();
-        keyValues.put("LEFT",false);
-        keyValues.put("RIGHT",false);
-        keyValues.put("ATTACKING",false);
-        keyValues.put("JUMPING",false);
+        //keyValues = new HashMap<>();
+        //keyValues.put("LEFT",false);
+        //keyValues.put("RIGHT",false);
         //System.out.println(keyValues);
+        keyValues = new LinkedList<Inputs>();
     }
 
     @Override
     public Inputs getInputs() {
-        for (Map.Entry<String, Boolean> me : keyValues.entrySet()) {
-            if(me.getKey().equals("LEFT") && me.getValue().equals(true)){return Inputs.LEFT;}
-            if(me.getKey().equals("RIGHT") && me.getValue().equals(true)){return Inputs.RIGHT;}
-            if(me.getKey().equals("ATTACKING") && me.getValue().equals(true)){return Inputs.ATTACKING;}
-            if(me.getKey().equals("JUMPING") && me.getValue().equals(true)){return Inputs.JUMPING;}
-        }
-        return Inputs.IDLE;
-        //CURRENTLY ONE INPUT IS DETECTED NEED TO ADD FUNCTIONALITY TO DETECT 2 INPUTS LIKE RUNNING AND SHOOTING
+        /*for (Map.Entry<String, Boolean> me : keyValues.entrySet()) {
+            if(me.getKey().equals("LEFT") && me.getValue().equals(true)){
+                System.out.println("Ik ben left aan het returnnen");
+                return Inputs.LEFT;
+            }
+            if(me.getKey().equals("RIGHT") && me.getValue().equals(true)){
 
+                System.out.println("Ik ben right aan het returnnen");
+                return Inputs.RIGHT;
+            }
+            if(me.getKey().equals("LEFT") && me.getValue().equals(false)){
+                System.out.println("ik zit in idle left");
+                return Inputs.IDLE;
+            }
+            if(me.getKey().equals("RIGHT") && me.getValue().equals(false)){
+                System.out.println("ik zit in idle right");
+                return Inputs.IDLE;
+            }
+          }
+        return Inputs.IDLE;*/
+        if (!keyValues.isEmpty())
+            return keyValues.poll();
+        return Inputs.IDLE;
     }
 
 
-    static class KeyInputAdapter extends KeyAdapter {
-
-        @Override
-        public void keyTyped(KeyEvent e) {
-        }
+    /*static class KeyInputAdapter extends KeyAdapter {
 
         @Override
         public void keyReleased(KeyEvent e) {
             switch (e.getKeyCode()) {
-                case KeyEvent.VK_LEFT -> keyValues.put("LEFT",false);
-                case KeyEvent.VK_RIGHT -> keyValues.put("RIGHT",false);
-                case KeyEvent.VK_X -> keyValues.put("ATTACKING",false);
-                case KeyEvent.VK_SPACE -> keyValues.put("JUMPING",false);
+                case KeyEvent.VK_LEFT:
+                    keyValues.put("LEFT",false);
+                    System.out.println("Left released");
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    keyValues.put("RIGHT",false);
+                    System.out.println("Right released");
+                    break;
             }
         }
 
         @Override
         public void keyPressed(KeyEvent e) {
             switch (e.getKeyCode()) {
-                case KeyEvent.VK_LEFT -> keyValues.put("LEFT",true);
-                case KeyEvent.VK_RIGHT -> keyValues.put("RIGHT",true);
-                case KeyEvent.VK_X -> keyValues.put("ATTACKING",true);
-                case KeyEvent.VK_SPACE -> keyValues.put("JUMPING",true);
+                case KeyEvent.VK_LEFT:
+                    keyValues.put("LEFT",true);
+                    System.out.println("left pressed");
+                    break;
+                case KeyEvent.VK_RIGHT :
+                    keyValues.put("RIGHT",true);
+                    System.out.println("right pressed " + keyValues.get("RIGHT"));
+                    break;
+            }
+        }
+    }*/
+    class KeyInputAdapter extends KeyAdapter {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            int keycode = e.getKeyCode();
+            switch (keycode) {
+                case KeyEvent.VK_LEFT : keyValues.add(Inputs.LEFT);  break;
+                case KeyEvent.VK_RIGHT: keyValues.add(Inputs.RIGHT); break;
+
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_LEFT : keyValues.clear();  break;
+                case KeyEvent.VK_RIGHT: keyValues.clear(); break;
             }
         }
     }

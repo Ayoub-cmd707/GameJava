@@ -15,8 +15,7 @@ public class j2dPlayer extends AbstractPlayer {
     private final GraphicsContext graphicsContext;
 
     private BufferedImage[] idleAnimation,runningAnimation;
-    private int aniTick, aniRunningIndex,aniIdleIndex, aniSpeed = 2;
-    private PositioningComponent positionComponent = getPosition();
+    private int aniTick, aniRunningIndex,aniIdleIndex, aniSpeed = 1;
 
     public j2dPlayer(GraphicsContext grCtx, int x, int y, int hitboxWidth, int hitboxHeight) throws IOException {
         super(x,y,hitboxWidth,hitboxHeight);
@@ -63,10 +62,14 @@ public class j2dPlayer extends AbstractPlayer {
     public void visualize() {
         Graphics2D graphics2D = graphicsContext.getG2d();
         update();
-        if(getInput().toString()== "LEFT"&&getInput().toString()== "LEFT"){
-            graphics2D.drawImage(runningAnimation[aniRunningIndex],(int) positionComponent.x,(int) positionComponent.y,64,64,null);
-        } else if (getInput().toString() == "IDLE"){
-            graphics2D.drawImage(idleAnimation[aniIdleIndex],(int) positionComponent.x,(int) positionComponent.y,64,64,null);
+        if(getInput().toString()== "RIGHT"){
+            graphics2D.drawImage(runningAnimation[aniRunningIndex],((int) getPosition().x)+1,(int) getPosition().y,64,64,null);
+        }
+        else if (getInput().toString()== "LEFT"){
+            graphics2D.drawImage(runningAnimation[aniRunningIndex],((int) getPosition().x + 64)-1,(int) getPosition().y,-64,64,null);
+        }
+        else if (getInput().toString() == "IDLE"){
+            graphics2D.drawImage(idleAnimation[aniIdleIndex],(int) getPosition().x,(int) getPosition().y,64,64,null);
         }
 
 

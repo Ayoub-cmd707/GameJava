@@ -12,6 +12,8 @@ public class CollisionComponent {
    protected int width, height;
    protected Rectangle hitBox;
 
+   public static float positionX;
+   public static float positionY;
 
     public CollisionComponent(float x, float y, int width, int height ) {
         this.x = x;
@@ -21,6 +23,7 @@ public class CollisionComponent {
         initHitbox();
         
     }
+
 
     private void initHitbox() {
         hitBox = new Rectangle((int) x,(int) y,width,height);
