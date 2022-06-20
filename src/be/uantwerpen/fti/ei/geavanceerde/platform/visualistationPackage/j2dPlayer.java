@@ -1,6 +1,7 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.visualistationPackage;
 
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.PositioningComponent;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractInput;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractPlayer;
 
 import javax.imageio.ImageIO;
@@ -12,7 +13,9 @@ import java.io.IOException;
 public class j2dPlayer extends AbstractPlayer {
 
     private final GraphicsContext graphicsContext;
-    private BufferedImage player;
+
+    private BufferedImage[] idleAnimation,runningAnimation;
+    private int aniTick, aniRunningIndex,aniIdleIndex, aniSpeed = 2;
     private PositioningComponent positionComponent = getPosition();
 
     public j2dPlayer(GraphicsContext grCtx, int x, int y, int hitboxWidth, int hitboxHeight) throws IOException {
@@ -21,21 +24,53 @@ public class j2dPlayer extends AbstractPlayer {
         this.graphicsContext = grCtx;
     }
 
+    private void update(){
+        aniTick++;
+        if (aniTick>= aniSpeed){
+            aniTick = 0;
+            aniRunningIndex++;
+            aniIdleIndex++;
+
+                if (aniRunningIndex >= runningAnimation.length){
+                    aniRunningIndex =0;
+                }
+
+                if (aniIdleIndex >= idleAnimation.length){
+                    aniIdleIndex =0;
+                }
+
+
+        }
+    }
+
+
+    private void loadSprite() throws IOException {
+        idleAnimation = new BufferedImage[8];
+        runningAnimation = new BufferedImage[6];
+        BufferedImage imageIdle = ImageIO.read(new File("src/resources/Idle.png"));
+        BufferedImage imageRunning = ImageIO.read(new File("src/resources/Run.png"));
+        for (int i = 0; i < idleAnimation.length; i++) {
+            idleAnimation[i] = imageIdle.getSubimage(i*64,0, 64,64);
+        }
+
+        for (int i = 0; i < runningAnimation.length; i++) {
+            runningAnimation[i] = imageRunning.getSubimage(i*64,0, 64,64);
+        }
+
+    }
+
     @Override
     public void visualize() {
         Graphics2D graphics2D = graphicsContext.getG2d();
-        //System.out.println((int) positionComponent.x);
-        graphics2D.drawImage(player,(int) positionComponent.x,(int) positionComponent.y,64,64,null);
-
-    }
-
-    private void loadSprite() throws IOException {
-
-        BufferedImage image = ImageIO.read(new File("src/resources/Idle.png"));
-
-        player = image.getSubimage(0,0, 64,64);
-
+        update();
+        if(getInput().toString()== "LEFT"&&getInput().toString()== "LEFT"){
+            graphics2D.drawImage(runningAnimation[aniRunningIndex],(int) positionComponent.x,(int) positionComponent.y,64,64,null);
+        } else if (getInput().toString() == "IDLE"){
+            graphics2D.drawImage(idleAnimation[aniIdleIndex],(int) positionComponent.x,(int) positionComponent.y,64,64,null);
+        }
 
 
     }
+
+
 }

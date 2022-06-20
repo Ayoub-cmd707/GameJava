@@ -83,7 +83,10 @@ public class Game {
                 //INPUTS
                 AbstractInput.Inputs input = inputs.getInputs();
                 System.out.println(input);
-                if (inputs != null) {checkMovement(input);abstractPlayer.setDirection(input);}
+                if (inputs != null) {
+                    checkMovement(input);
+                    abstractPlayer.setDirection(input);
+                }
                 //SYSTEMS UPDATE
                 //collisionSystem.updateCollision();
                 movement.update();

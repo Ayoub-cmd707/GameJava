@@ -53,5 +53,7 @@ public class j2dFactory extends AbstractFactory {
     }
 
     @Override
-    public void setGameDimensions(int GameCellsX, int GameCellsY) {this.grCtx.setGameDimensions(GameCellsX, GameCellsY);}
+    public void setGameDimensions(int GameCellsX, int GameCellsY) {
+        this.grCtx.setGameDimensions(GameCellsX, GameCellsY);
+    }
 }
