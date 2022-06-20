@@ -21,23 +21,14 @@ public abstract class AbstractMap implements Drawable {
     }
 
     public BufferedImage GetSpriteSheet(String fileName) {
-        System.out.println("filename is: "+fileName);
+
         BufferedImage bufferedImage = null;
 
-        InputStream inputStream = AbstractMap.class.getResourceAsStream(fileName);
-        System.out.println("Inputstream is: " + inputStream);
-        try {
 
+        try {
                 bufferedImage = ImageIO.read(new File(fileName));
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            /*try {
-                if (inputStream != null)
-                    inputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
         }
         return bufferedImage;
     }

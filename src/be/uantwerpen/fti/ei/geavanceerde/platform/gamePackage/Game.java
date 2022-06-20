@@ -21,27 +21,21 @@ public class Game {
     private final AbstractFactory abstractFactory;
     private AbstractPlayer abstractPlayer;
     private AbstractBackground abstractBackground;
-    private AbstractMap map;
+    private AbstractMap abstractMap;
     private Movement movement;
     HashMap<String, Integer> data;
-    private ArrayList<Drawable> drawables;
+
     private AbstractInput inputs;
 
     //map settins
     public final static int tilePictureSize = 64;
+    public final static float scale = 1.0f;
     public final static int tilesWidth= 10;
-    public final static int tilesHeight = 12;
-    public final static int tileSize = (int)(tilePictureSize);
+    public final static int tilesHeight = 11;
+    public final static int tileSize = (int)(tilePictureSize*scale);
 
     //voor run
-    double timingsPerFrame = 1000000000.0 / 61; //
-    double updater =  1000000000.0 / 61;
-    long pTime = System.nanoTime();
-    long lastCheck = 0L;
-    double deltaU = 0;
-    double deltaF = 0;
-    int fps = 0;
-    int ups = 0;
+
 
 
     public Game(AbstractFactory abstractFactory) throws IOException {
@@ -53,63 +47,71 @@ public class Game {
         inputs = abstractFactory.createInputs();
         abstractBackground = abstractFactory.background();
         abstractPlayer = abstractFactory.createPlayer(10,10,64,64);
-        map = abstractFactory.createAMap(Maps.map1,tilesHeight,tilesWidth,tileSize);
-        drawables = new ArrayList<>();
+        abstractMap = abstractFactory.createAMap(Maps.map1,tilesHeight,tilesWidth,tileSize);
 
-
-        drawables.add(abstractBackground);
-        drawables.add(map);
-        drawables.add(abstractPlayer);
 
 
         movement = new Movement(abstractPlayer.getMovement(), abstractPlayer.getPosition());
 
     }
 
-
-    public void run(final String configFile){
+    private volatile boolean runWhile = false;
+    public void run(final String configFile) {
         data = ConfigFileReader.getConfigFileReaderInstance().loadOrCreateConfig(configFile);
         abstractFactory.setGameDimensions((int)(data.get("ScreenWidth")), (int)(data.get("ScreenHeight")));
+        runWhile = true;
+        double timePerFrame = 1000000000.0/60;
+        double timePerUpdate = 1000000000.0/690;
 
-        while (true){
-            long cTime = System.nanoTime();
-            deltaU += (cTime - pTime) / updater;
-            deltaF += (cTime - pTime) / timingsPerFrame;
-            pTime = cTime;
-            if(deltaU >= 1){
+        long previousTime = System.nanoTime();
 
-                //STATUS
-                //statusCheck();
-                //INPUTS
+        int frames = 0;
+        int updates = 0;
+        long lastCheck = System.currentTimeMillis();
+
+        double deltaU = 0;
+        double deltaF = 0;
+
+
+        while (runWhile) {
+            Thread.onSpinWait();
+
+            long currentTime = System.nanoTime();
+
+            deltaU += (currentTime - previousTime)/timePerUpdate;
+            deltaF += (currentTime - previousTime)/timePerFrame;
+            previousTime = currentTime;
+
+            if(deltaU>=1){
                 AbstractInput.Inputs input = inputs.getInputs();
-                System.out.println(input);
+                //System.out.println(input);
                 if (inputs != null) {
                     checkMovement(input);
                     abstractPlayer.setDirection(input);
                 }
-                //SYSTEMS UPDATE
-                //collisionSystem.updateCollision();
                 movement.update();
-                //bulletSystem.update();
-                ups++;
+                updates++;
                 deltaU--;
             }
 
-            if(deltaF >= 1){
+            if(deltaF >=1){
 
-                //DRAW
-                for (Drawable drawable : drawables) {drawable.visualize();}
-                //RENDER
+                abstractBackground.visualize();
+                abstractMap.visualize();
+                abstractPlayer.visualize();
+
                 abstractFactory.render();
-                fps++;
+                frames++;
                 deltaF--;
             }
 
-            if(System.currentTimeMillis() - lastCheck >=1000){
+            if (System.currentTimeMillis() - lastCheck >= 1000) {
                 lastCheck = System.currentTimeMillis();
-                fps = 0;
-                ups = 0;
-            }
+				//System.out.println("FPS: " + frames + " | UPS: " + updates);
+				frames = 0;
+				updates = 0;
+
+			}
         }
 
     }

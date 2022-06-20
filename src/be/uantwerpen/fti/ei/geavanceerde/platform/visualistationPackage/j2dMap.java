@@ -22,28 +22,44 @@ public class j2dMap extends AbstractMap {
 
 
 
-
     @Override
     public void visualize() {
         Graphics2D g2d = graphicsContext.getG2d();
-        BufferedImage img;
-        for(int x=0; x<heightOfTiles; x++){
-            for(int y =0; y<witdthOfTiles; y++){
-                int number = getSpriteIndex(y,x);
-                switch (number) {
+        BufferedImage img  = GetSpriteSheet("src/resources/Tile1.png");
+        BufferedImage img2  = GetSpriteSheet("src/resources/Tile2.png");
+        BufferedImage img3  = GetSpriteSheet("src/resources/Tile3.png");
+
+        for(int y=0; y<heightOfTiles; y++){
+            for(int x =0; x<witdthOfTiles; x++){
+                int number = getSpriteIndex(x,y);
+                /*switch (number) {
                     case 1 -> {
                         img = GetSpriteSheet("src/resources/Tile1.png");
-                        g2d.drawImage(img, (y * sizeOfTiles) - graphicsContext.getCamX(), (x * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+                        g2d.drawImage(img, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
                     }
                     case 2 -> {
                         img = GetSpriteSheet("src/resources/Tile2.png");
-                        g2d.drawImage(img, (y * sizeOfTiles) - graphicsContext.getCamX(), (x * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+                        g2d.drawImage(img, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
                     }
                     case 3 -> {
                         img = GetSpriteSheet("src/resources/Tile3.png");
-                        g2d.drawImage(img, (y * sizeOfTiles) - graphicsContext.getCamX(), (x * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+                        g2d.drawImage(img, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
                     }
+                }*/
+
+                if (number != 0) {
+
+                    if (number == 1)
+                        g2d.drawImage(img, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+
+                    if (number == 2)
+                        g2d.drawImage(img2, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+
+                    if (number == 3)
+                        g2d.drawImage(img3, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+
                 }
+
             }
         }
     }
