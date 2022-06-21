@@ -33,7 +33,7 @@ public class Game {
     //map settins
     public final static int tilePictureSize = 64;
     public final static float scale = 1.0f;
-    public final static int tilesWidth= 10;
+    public final static int tilesWidth= 25;
     public final static int tilesHeight = 11;
     public final static int tileSize = (int)(tilePictureSize*scale);
 
@@ -86,7 +86,8 @@ public class Game {
 
             if(deltaU>=1){
                 AbstractInput.Inputs input = inputs.getInputs();
-                System.out.println(input);
+                if (input != AbstractInput.Inputs.IDLE)
+                    System.out.println(input);
                 if (inputs != null) {
                     checkMovement(input);
                     abstractPlayer.setDirection(input);
@@ -127,9 +128,14 @@ public class Game {
             } else if (abstractPlayer.getMovement().isMoving() && inputs == AbstractInput.Inputs.RIGHT) {
                 abstractPlayer.getMovement().setRight(true);
                 abstractPlayer.getMovement().setLeft(false);
-            } else {
+            }
+            else if (abstractPlayer.getMovement().isMoving() && inputs == AbstractInput.Inputs.JUMP) {
+                movement.jump();
+            }
+            else {
                 abstractPlayer.getMovement().setRight(false);
                 abstractPlayer.getMovement().setLeft(false);
+                abstractPlayer.getMovement().setJump(false);
             }
 
         /*else if(inputs == AbstractInput.Inputs.ATTACKING){

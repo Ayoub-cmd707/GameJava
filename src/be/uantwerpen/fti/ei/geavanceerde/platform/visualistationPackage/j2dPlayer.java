@@ -13,9 +13,10 @@ import java.io.IOException;
 public class j2dPlayer extends AbstractPlayer {
 
     private final GraphicsContext graphicsContext;
-
+    private float xDrawOffset = 10;
+    private float yDrawOffset = 10;
     private BufferedImage[] idleAnimation,runningAnimation;
-    private int aniTick, aniRunningIndex,aniIdleIndex, aniSpeed = 1;
+    private int aniTick, aniRunningIndex,aniIdleIndex, aniSpeed = 3;
 
     public j2dPlayer(GraphicsContext grCtx, int x, int y, int hitboxWidth, int hitboxHeight) throws IOException {
         super(x,y,hitboxWidth,hitboxHeight);
@@ -62,14 +63,32 @@ public class j2dPlayer extends AbstractPlayer {
     public void visualize() {
         Graphics2D graphics2D = graphicsContext.getG2d();
         update();
+
+        //SIDEWAYS CAMERA MOVEMENT
+        graphicsContext.setCamX((int)getPosition().x- graphicsContext.getViewPortX()/2);
+        graphicsContext.setCamY((int)getPosition().y- graphicsContext.getViewPortY()/2);
+
+        if (graphicsContext.getCamX() > graphicsContext.getOffsetMaxX()){
+            graphicsContext.setCamX(graphicsContext.getOffsetMaxX());
+        }
+        else if (graphicsContext.getCamX() < graphicsContext.getOffsetMinX()){
+            graphicsContext.setCamX(graphicsContext.getOffsetMinX());
+        }
+        if(graphicsContext.getCamY() > graphicsContext.getOffsetMaxY()){
+            graphicsContext.setCamY(graphicsContext.getOffsetMaxY());
+        }
+        else if(graphicsContext.getCamY() < graphicsContext.getOffsetMinY()){
+            graphicsContext.setCamY(graphicsContext.getOffsetMinY());
+        }
+
         if(getInput().toString()== "RIGHT"){
-            graphics2D.drawImage(runningAnimation[aniRunningIndex],((int) getPosition().x)+1,(int) getPosition().y,64,64,null);
+            graphics2D.drawImage(runningAnimation[aniRunningIndex],(int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX(),(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),64,64,null);
         }
         else if (getInput().toString()== "LEFT"){
-            graphics2D.drawImage(runningAnimation[aniRunningIndex],((int) getPosition().x + 64)-1,(int) getPosition().y,-64,64,null);
+            graphics2D.drawImage(runningAnimation[aniRunningIndex],(int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX(),(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),-64,64,null);
         }
         else if (getInput().toString() == "IDLE"){
-            graphics2D.drawImage(idleAnimation[aniIdleIndex],(int) getPosition().x,(int) getPosition().y,64,64,null);
+            graphics2D.drawImage(idleAnimation[aniIdleIndex],(int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX(),(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),64,64,null);
         }
 
 

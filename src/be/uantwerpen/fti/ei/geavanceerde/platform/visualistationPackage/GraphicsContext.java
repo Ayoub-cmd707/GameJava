@@ -20,14 +20,11 @@ public class GraphicsContext {
     private int size;
     private int viewPortX = 666;
     private int viewPortY = 800;
-    private int offsetMaxX = 1280 - viewPortX;
-    private int offsetMaxY = 800 - viewPortY;
+    private int offsetMaxX = 1280;
+    private int offsetMaxY = 800;
     private int offsetMinX = 0;
     private int offsetMinY = 0;
-    public int getCamX() {return camX;}
-    public void setCamX(int camX) {this.camX = camX;}
-    public int getCamY() {return camY;}
-    public void setCamY(int camY) {this.camY = camY;}
+
 
     public Graphics2D getG2d() {
         return g2d;
@@ -74,7 +71,7 @@ public class GraphicsContext {
         };
         frame.setFocusable(true);
         frame.add(panel);
-        frame.setTitle("Platformer Game 1");
+        frame.setTitle("Project Game");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(ScreenWidth, ScreenHeight);
         frame.setResizable(true);
@@ -108,4 +105,23 @@ public class GraphicsContext {
         g2dimage = new BufferedImage(frame.getWidth(), frame.getHeight(), BufferedImage.TYPE_4BYTE_ABGR_PRE);
         g2d = g2dimage.createGraphics();
     }
+
+
+    public int getCamX() {return camX;}
+    public void setCamX(int camX) {this.camX = camX;}
+    public int getCamY() {return camY;}
+    public void setCamY(int camY) {this.camY = camY;}
+    public int getOffsetMaxX() {return offsetMaxX;}
+    public void setOffsetMaxX(int offsetMaxX) {this.offsetMaxX = offsetMaxX;}
+    public int getOffsetMaxY() {return offsetMaxY;}
+    public void setOffsetMaxY(int offsetMaxY) {this.offsetMaxY = offsetMaxY;}
+    public int getOffsetMinX() {return offsetMinX;}
+    public void setOffsetMinX(int offsetMinX) {this.offsetMinX = offsetMinX;}
+    public int getOffsetMinY() {return offsetMinY;}
+    public void setOffsetMinY(int offsetMinY) {this.offsetMinY = offsetMinY;}
+    public int getViewPortX() {return viewPortX;}
+    public void setViewPortX(int viewPortX) {this.viewPortX = viewPortX;}
+    public int getViewPortY() {return viewPortY;}
+    public void setViewPortY(int viewPortY) {this.viewPortY = viewPortY;}
+
 }
