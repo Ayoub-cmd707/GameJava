@@ -130,7 +130,7 @@ public class Game {
                 abstractPlayer.getMovement().setLeft(false);
             }
             else if (abstractPlayer.getMovement().isMoving() && inputs == AbstractInput.Inputs.JUMP) {
-                movement.jump();
+                System.out.println("hi");
             }
             else {
                 abstractPlayer.getMovement().setRight(false);

@@ -13,8 +13,8 @@ import java.io.IOException;
 public class j2dPlayer extends AbstractPlayer {
 
     private final GraphicsContext graphicsContext;
-    private float xDrawOffset = 10;
-    private float yDrawOffset = 10;
+    private float xDrawOffset = 0;
+    private float yDrawOffset = 0;
     private BufferedImage[] idleAnimation,runningAnimation;
     private int aniTick, aniRunningIndex,aniIdleIndex, aniSpeed = 3;
 
@@ -82,10 +82,11 @@ public class j2dPlayer extends AbstractPlayer {
         }
 
         if(getInput().toString()== "RIGHT"){
-            graphics2D.drawImage(runningAnimation[aniRunningIndex],(int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX(),(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),64,64,null);
+            graphics2D.drawImage(runningAnimation[aniRunningIndex],(int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX() +1,(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),64,64,null);
         }
         else if (getInput().toString()== "LEFT"){
-            graphics2D.drawImage(runningAnimation[aniRunningIndex],(int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX(),(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),-64,64,null);
+            graphics2D.drawImage(runningAnimation[aniRunningIndex],(int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX()+ 64,(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),-64,64,null);
+            //graphics2D.drawImage(runningAnimation[aniRunningIndex],((int) getPosition().x + 64)-1,(int) getPosition().y,-64,64,null);
         }
         else if (getInput().toString() == "IDLE"){
             graphics2D.drawImage(idleAnimation[aniIdleIndex],(int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX(),(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),64,64,null);

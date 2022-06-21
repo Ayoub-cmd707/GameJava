@@ -3,6 +3,7 @@ package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.CollisionComponent;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.MovementComponent;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Game;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.utilities.Maps;
 
 import java.awt.geom.Rectangle2D;
 
@@ -25,10 +26,16 @@ public class CollisionDetection {
 
     private static boolean Solid(float x,float y, int[][] map){
 
-        if (x < 0 || x >= Game.gameWidth)
+        if (x < 0.5f || x >= Game.tileSize * Game.tilesWidth){
+            System.out.println("rand x-as");
             return true;
-        if (x < 0 || x >= Game.gameHeigth)
+        }
+
+        if (y < 0.5f || y >= Game.tileSize * Game.tilesWidth){
+            System.out.println("rand y-as");
             return true;
+        }
+
 
         float xIndex = x / Game.tileSize;
         float yIndex = y / Game.tileSize;
@@ -43,81 +50,34 @@ public class CollisionDetection {
 
         return false;
     }
-    public static float UnderAboveTile(float airspeed, float y, int[][] map){
-        int tile = (int)(y/Game.tileSize);
-        if (airspeed > 0){
-            int tilePosY = tile * Game.tileSize;
-            int offset = Game.tileSize - 64;
-            return tilePosY + offset -1;
-        }else
-            return tile * Game.tileSize;
-    }
-
-    public static boolean FloorCheck(float x, float y, int[][] map){
-        if(!Solid(x,y+65,map))
-            if (!Solid(x+65,y,map))
-                return false;
-
-        return true;
-    }
-
-    public static float GetEntityPosNextToWall(int x, int y, int width, int height, Float xSpeed){
-        Rectangle2D.Float hitbox = new Rectangle2D.Float();
-        hitbox.x = x;
-        hitbox.y = y;
-        hitbox.width = width;
-        hitbox.height = height;
-        int currentTile = (int)(hitbox.x / Game.tileSize);
+    public float GetEntityPosNextToWall(int x, int y, int width, int height, Float xSpeed){
+        int currentTile = (int)(x / Game.tileSize);
         if(xSpeed > 0){
-            //right
             int tileXpos = currentTile * Game.tileSize;
-            int xOffset = (int)(Game.tileSize - hitbox.width);
-            System.out.println(tileXpos + xOffset - 1);
-            return tileXpos + xOffset - 1;
+            int xOffset = (int)(Game.tileSize - width);
+            return tileXpos + xOffset +64 - 1;
         }
-        else{
-            //left
+        else
             return currentTile * Game.tileSize;
-        }
-
     }
 
     public static float GetEntityYPosUnderRoofOrAboveFloor(int x, int y, int width, int height, Float airSpeed){
-        Rectangle2D.Float hitbox = new Rectangle2D.Float();
-        hitbox.x = x;
-        hitbox.y = y;
-        hitbox.width = width;
-        hitbox.height = height;
-        int currentTile = (int) (hitbox.y / Game.tileSize);
+        int currentTile = (int) (y / Game.tileSize);
         if(airSpeed > 0){
-            //falling or touching floor
-            System.out.println("touching flore");
             int tileYPos = currentTile * Game.tileSize;
-            return tileYPos + 64 - 1;
+            int yOffset = (int)(Game.tileSize - height);
+            return tileYPos + 64 -1;
         }
-        else{
-            //jumping
-            System.out.println("jumping");
+        else
             return currentTile * Game.tileSize;
-        }
+
     }
 
-
-    public static boolean IsEntityOnFloor(int x, int y, int width, int height, int[][] levelData){
-        Rectangle2D.Float hitbox = new Rectangle2D.Float();
-        hitbox.x = x;
-        hitbox.y = y;
-        hitbox.width = width;
-        hitbox.height = height;
-        //System.out.println(hitbox);
+    public static boolean IsEntityOnFloor(int x, int y, int width, int height){
         //check below bottomleft and bottomright
-        if(!Solid(hitbox.x+1, hitbox.y + hitbox.height+1, levelData)){
-            if(!Solid(hitbox.x + hitbox.width+ 1,hitbox.y + hitbox.height+1, levelData)){
-
-                return false;
-            }
+        if(!Solid(x, y + height+1,Maps.map1)){
+            return Solid(x + width, y + height + 1, Maps.map1);
         }
-
         return true;
     }
 }

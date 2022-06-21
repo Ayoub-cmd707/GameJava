@@ -18,7 +18,7 @@ public class GraphicsContext {
     private BufferedImage g2dimage;
     private Graphics2D g2d;
     private int size;
-    private int viewPortX = 666;
+    private int viewPortX = 640;
     private int viewPortY = 800;
     private int offsetMaxX = 1280;
     private int offsetMaxY = 800;
