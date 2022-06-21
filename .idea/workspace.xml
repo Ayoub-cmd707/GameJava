@@ -4,12 +4,8 @@
     <list default="true" id="0d73b273-421a-4152-82e7-5891a3166f7e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/MovementComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/MovementComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/Movement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/Movement.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/MovementComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/MovementComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/Movement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/Movement.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,6 +161,7 @@
       <workItem from="1655650420527" duration="8457000" />
       <workItem from="1655673546334" duration="2792000" />
       <workItem from="1655715708010" duration="14758000" />
+      <workItem from="1655835394079" duration="1334000" />
     </task>
     <servers />
   </component>

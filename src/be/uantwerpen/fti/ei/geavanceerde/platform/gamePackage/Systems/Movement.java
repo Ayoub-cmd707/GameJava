@@ -42,17 +42,17 @@ public class Movement {
             positionComponent.x = positionComponent.getX();
         }
 
-        positionComponent.x +=movementComponent.getxSpeed();;
-        positionComponent.setX(positionComponent.x);
+            positionComponent.x +=movementComponent.getxSpeed();;
+            positionComponent.setX(positionComponent.x);
 
 
         }else {
-        movementComponent.setLeft(false);
-        movementComponent.setRight(false);
+            movementComponent.setLeft(false);
+            movementComponent.setRight(false);
             movementComponent.setJump(false);
-        positionComponent.x = positionComponent.getX();
-        movementComponent.setxSpeed(4);
-    }
+            positionComponent.x = positionComponent.getX();
+            movementComponent.setxSpeed(4);
+        }
 
 
             //System.out.println("x waarde "+ positionComponent.x );

@@ -13,10 +13,10 @@ public class MovementComponent {
     private int xSpeed;
 
     public MovementComponent() {
-        airSpeed = 2.5f;
+        airSpeed = 0f;
         this.inAir = false;
-        this.gravity = 5f;
-        this.jumpSpeed = 2.5f;
+        this.gravity = 1.5f;
+        this.jumpSpeed = -15f;
         this.fallSpeedAfterCollision = 1f;
         this.isMoving = false;
 
