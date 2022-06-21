@@ -131,6 +131,7 @@ public class Game {
             }
             else if (abstractPlayer.getMovement().isMoving() && inputs == AbstractInput.Inputs.JUMP) {
                 System.out.println("hi");
+                abstractPlayer.getMovement().setJump(true);
             }
             else {
                 abstractPlayer.getMovement().setRight(false);

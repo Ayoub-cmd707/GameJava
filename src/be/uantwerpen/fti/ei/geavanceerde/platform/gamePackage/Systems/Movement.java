@@ -17,7 +17,12 @@ public class Movement {
     private void updateMovement(){
         movementComponent.setMoving(false);
 
+        if (movementComponent.isJump()){
+            jump();
+            movementComponent.setJump(false);
 
+
+        }
         if(movementComponent.isLeft()){
             if(!CollisionDetection.Move(positionComponent.x -5 , positionComponent.y , 64,64, Maps.map1)){
                 movementComponent.setLeft(false);
@@ -44,13 +49,18 @@ public class Movement {
         }else {
         movementComponent.setLeft(false);
         movementComponent.setRight(false);
+            movementComponent.setJump(false);
         positionComponent.x = positionComponent.getX();
         movementComponent.setxSpeed(4);
     }
 
 
             //System.out.println("x waarde "+ positionComponent.x );
-        movementComponent.setMoving(true);
+        if(!movementComponent.isInAir()){
+            if(!CollisionDetection.IsEntityOnFloor((int)positionComponent.x,(int)positionComponent.y,(int)positionComponent.hitboxWidth,(int)positionComponent.hitboxHeight)){
+                movementComponent.setInAir(true);
+            }
+        }
 
         if(movementComponent.isInAir()){
 //            System.out.println("is in air " + movementComponent.isInAir());
@@ -62,23 +72,36 @@ public class Movement {
                 MovementComponent.airSpeed += movementComponent.getGravity();
 //                System.out.println("na y = "+positionComponent.y);
 //                System.out.println("airspeed = "+MovementComponent.airSpeed);
-//                System.out.println("ik ben in de lucht");
 
-            } else {
-                positionComponent.y = CollisionDetection.GetEntityYPosUnderRoofOrAboveFloor((int)positionComponent.x,(int)positionComponent.y,(int)positionComponent.hitboxWidth, (int)positionComponent.hitboxHeight, MovementComponent.airSpeed);
+            }
+            else {
+                positionComponent.y = CollisionDetection.GetEntityYPosUnderRoofOrAboveFloor((int)positionComponent.x,(int)positionComponent.y,(int)positionComponent.hitboxWidth, (int)positionComponent.hitboxHeight, (int) MovementComponent.airSpeed);
+                if (MovementComponent.airSpeed >0 ){
+                    System.out.println("airspeed is groterdan bij vallen");
+                    movementComponent.setInAir(false);
+                    MovementComponent.airSpeed = 0;
+                }else{
+                    System.out.println("airspeed is 0.5f");
+                    MovementComponent.airSpeed = 0.5f;
+                }
 
-                movementComponent.setInAir(false);
-                MovementComponent.airSpeed = 0.5f;
             }
         }
-
-
+        System.out.println("airspeed = "+MovementComponent.airSpeed );
+        movementComponent.setMoving(true);
 
 
     }
 
 
+    public void jump(){
+        if(movementComponent.isInAir()){return;}
+        movementComponent.setInAir(true);
 
+        MovementComponent.airSpeed  = movementComponent.getJumpSpeed();
+        positionComponent.y = CollisionDetection.GetEntityYPosUnderRoofOrAboveFloor((int)positionComponent.x,(int)positionComponent.y,(int)positionComponent.hitboxWidth, (int)positionComponent.hitboxHeight, (int) MovementComponent.airSpeed);
+
+    }
 
 
 

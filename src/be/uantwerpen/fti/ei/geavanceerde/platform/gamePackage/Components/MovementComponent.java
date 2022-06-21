@@ -16,7 +16,7 @@ public class MovementComponent {
         airSpeed = 2.5f;
         this.inAir = false;
         this.gravity = 5f;
-        this.jumpSpeed = 1f;
+        this.jumpSpeed = 2.5f;
         this.fallSpeedAfterCollision = 1f;
         this.isMoving = false;
 

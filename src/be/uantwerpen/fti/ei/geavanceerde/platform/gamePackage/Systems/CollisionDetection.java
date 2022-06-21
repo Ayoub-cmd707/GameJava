@@ -50,27 +50,20 @@ public class CollisionDetection {
 
         return false;
     }
-    public float GetEntityPosNextToWall(int x, int y, int width, int height, Float xSpeed){
-        int currentTile = (int)(x / Game.tileSize);
-        if(xSpeed > 0){
-            int tileXpos = currentTile * Game.tileSize;
-            int xOffset = (int)(Game.tileSize - width);
-            return tileXpos + xOffset +64 - 1;
-        }
-        else
-            return currentTile * Game.tileSize;
-    }
 
-    public static float GetEntityYPosUnderRoofOrAboveFloor(int x, int y, int width, int height, Float airSpeed){
+
+    public static float GetEntityYPosUnderRoofOrAboveFloor(int x, int y, int width, int height, int airSpeed){
         int currentTile = (int) (y / Game.tileSize);
         if(airSpeed > 0){
+            System.out.println("Falling Down");
             int tileYPos = currentTile * Game.tileSize;
             int yOffset = (int)(Game.tileSize - height);
             return tileYPos + 64 -1;
         }
-        else
+        else {
+            System.out.println("JUMPING IN THE AIR");
             return currentTile * Game.tileSize;
-
+        }
     }
 
     public static boolean IsEntityOnFloor(int x, int y, int width, int height){
