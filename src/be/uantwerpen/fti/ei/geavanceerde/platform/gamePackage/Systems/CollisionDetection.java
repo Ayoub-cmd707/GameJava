@@ -69,10 +69,12 @@ public class CollisionDetection {
     public static float GetEntityPosNextToWall(int x, int y, int width, int height, Float xSpeed) {
         int currentTile = (int) (x / Game.tileSize);
         if (xSpeed > 0) {
+            System.out.println("next to wall");
             int tileXpos = currentTile * Game.tileSize;
             int xOffset = (int) (Game.tileSize - width);
             return tileXpos + 64 - 1;
         } else {
+            System.out.println("not next to  wall");
             return currentTile * Game.tileSize;
         }
     }
@@ -80,6 +82,7 @@ public class CollisionDetection {
         public static boolean IsEntityOnFloor(int x, int y, int width, int height){
         //check below bottomleft and bottomright
         if(!Solid(x, y + height+1,Maps.map1)){
+            System.out.println("is on floor");
             return Solid(x + width, y + height + 1, Maps.map1);
         }
         return true;

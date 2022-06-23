@@ -90,8 +90,8 @@ public class Game {
 
             if(deltaU>=1){
                 AbstractInput.Inputs input = inputs.getInputs();
-                if (input != AbstractInput.Inputs.IDLE)
-                    System.out.println(input);
+                //if (input != AbstractInput.Inputs.IDLE)
+                    //System.out.println(input);
                 if (inputs != null) {
                     checkMovement(input);
                     abstractPlayer.setDirection(input);
@@ -140,7 +140,6 @@ public class Game {
             else {
                 abstractPlayer.getMovement().setRight(false);
                 abstractPlayer.getMovement().setLeft(false);
-                abstractPlayer.getMovement().setJump(false);
             }
 
         /*else if(inputs == AbstractInput.Inputs.ATTACKING){

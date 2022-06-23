@@ -22,6 +22,7 @@ public class Movement {
 
         if (movementComponent.isJump()){
             jump();
+            System.out.println(" ik ben in set jump bij movement");
             movementComponent.setJump(false);
         }
 //        if(movementComponent.isLeft()){
@@ -59,19 +60,20 @@ public class Movement {
             //System.out.println("x waarde "+ positionComponent.x );
         if(!movementComponent.isInAir()){
             if(!CollisionDetection.IsEntityOnFloor((int)positionComponent.x,(int)positionComponent.y,(int)positionComponent.hitboxWidth,(int)positionComponent.hitboxHeight)){
+                System.out.println(" ik niet in de lucht en er is collision");
                 movementComponent.setInAir(true);
             }
         }
 
         if(movementComponent.isInAir()){
-//            System.out.println("is in air " + movementComponent.isInAir());
+            System.out.println("is in air " + movementComponent.isInAir());
 //            System.out.println("ik ben in de lucht");
 //            System.out.println("airspeed = " + MovementComponent.airSpeed);
             if(CollisionDetection.Move(positionComponent.x, (positionComponent.y + MovementComponent.airSpeed), 64, 64, Maps.map1)){
-//                System.out.println("voor y = "+positionComponent.y);
+                System.out.println("voor y = "+positionComponent.y);
                 positionComponent.y += MovementComponent.airSpeed;
                 MovementComponent.airSpeed += movementComponent.getGravity();
-//                System.out.println("na y = "+positionComponent.y);
+                System.out.println("na y = "+positionComponent.y);
 //                System.out.println("airspeed = "+MovementComponent.airSpeed);
                 updateXPos(movementComponent.getxSpeed(),64,64);
             }
@@ -106,7 +108,7 @@ public class Movement {
     public void jump(){
         if(movementComponent.isInAir()){return;}
         movementComponent.setInAir(true);
-
+        System.out.println(" ik zit in de jump functie");
         MovementComponent.airSpeed  = movementComponent.getJumpSpeed();
         positionComponent.y = CollisionDetection.GetEntityYPosUnderRoofOrAboveFloor((int)positionComponent.x,(int)positionComponent.y,(int)positionComponent.hitboxWidth, (int)positionComponent.hitboxHeight, (int) MovementComponent.airSpeed);
 
