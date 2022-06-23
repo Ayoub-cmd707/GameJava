@@ -66,7 +66,18 @@ public class CollisionDetection {
         }
     }
 
-    public static boolean IsEntityOnFloor(int x, int y, int width, int height){
+    public static float GetEntityPosNextToWall(int x, int y, int width, int height, Float xSpeed) {
+        int currentTile = (int) (x / Game.tileSize);
+        if (xSpeed > 0) {
+            int tileXpos = currentTile * Game.tileSize;
+            int xOffset = (int) (Game.tileSize - width);
+            return tileXpos + 64 - 1;
+        } else {
+            return currentTile * Game.tileSize;
+        }
+    }
+
+        public static boolean IsEntityOnFloor(int x, int y, int width, int height){
         //check below bottomleft and bottomright
         if(!Solid(x, y + height+1,Maps.map1)){
             return Solid(x + width, y + height + 1, Maps.map1);
