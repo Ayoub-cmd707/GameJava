@@ -1,11 +1,9 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage;
 
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.CollisionDetection;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.LevelManagerSystem;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.Movement;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractBackground;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractInput;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractMap;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractPlayer;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.*;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.utilities.Maps;
 import be.uantwerpen.fti.ei.geavanceerde.platform.helper.ConfigFileReader;
 
@@ -25,10 +23,12 @@ public class Game {
 
     private final AbstractFactory abstractFactory;
     private AbstractPlayer abstractPlayer;
+    private AbstractEnemy abstractEnemy;
     private AbstractBackground abstractBackground;
     private AbstractMap abstractMap;
     private Movement movement;
     private CollisionDetection collisionDetection;
+    private LevelManagerSystem levelManagerSystem;
     HashMap<String, Integer> data;
     public static int gameWidth = 0;
     public static int gameHeigth =0;
@@ -54,9 +54,11 @@ public class Game {
         inputs = abstractFactory.createInputs();
         abstractBackground = abstractFactory.background();
         abstractPlayer = abstractFactory.createPlayer(70,50,64,64);
-        abstractMap = abstractFactory.createAMap(Maps.map1,tilesHeight,tilesWidth,tileSize);
-        movement = new Movement(abstractPlayer.getMovement(), abstractPlayer.getPosition());
-        collisionDetection = new CollisionDetection();
+        abstractMap = abstractFactory.createAMap(Maps.maps,tilesHeight,tilesWidth,tileSize);
+        movement = new Movement(abstractPlayer.getMovement(), abstractPlayer.getPosition(),abstractPlayer.getLevelComponent());
+        collisionDetection = new CollisionDetection(abstractPlayer.getLevelComponent());
+        levelManagerSystem = new LevelManagerSystem(abstractPlayer.getLevelComponent(),abstractPlayer.getPosition());
+        abstractEnemy = abstractFactory.createEnemy(70 ,300,64,64);
     }
 
     private volatile boolean runWhile = false;
@@ -93,10 +95,11 @@ public class Game {
                 //if (input != AbstractInput.Inputs.IDLE)
                     //System.out.println(input);
                 if (inputs != null) {
-                    checkMovement(input);
+                    abstractPlayer.checkMovement(input);
                     abstractPlayer.setDirection(input);
                 }
                 movement.update();
+                levelManagerSystem.updateLevel();
                 updates++;
                 deltaU--;
             }
@@ -106,8 +109,9 @@ public class Game {
                 abstractBackground.visualize();
                 abstractMap.visualize();
                 abstractPlayer.visualize();
-
+                abstractEnemy.visualize();
                 abstractFactory.render();
+
                 frames++;
                 deltaF--;
             }
@@ -123,38 +127,6 @@ public class Game {
 
     }
 
-    private void checkMovement(AbstractInput.Inputs inputs) {
 
-
-            if (abstractPlayer.getMovement().isMoving() && inputs == AbstractInput.Inputs.LEFT) {
-                abstractPlayer.getMovement().setLeft(true);
-                abstractPlayer.getMovement().setRight(true);
-            } else if (abstractPlayer.getMovement().isMoving() && inputs == AbstractInput.Inputs.RIGHT) {
-                abstractPlayer.getMovement().setRight(true);
-                abstractPlayer.getMovement().setLeft(false);
-            }
-            else if (abstractPlayer.getMovement().isMoving() && inputs == AbstractInput.Inputs.JUMP) {
-                System.out.println("hi");
-                abstractPlayer.getMovement().setJump(true);
-            }
-            else {
-                abstractPlayer.getMovement().setRight(false);
-                abstractPlayer.getMovement().setLeft(false);
-            }
-
-        /*else if(inputs == AbstractInput.Inputs.ATTACKING){
-            //FIRE BULLETS
-            long elapsed = (System.nanoTime() - firingTimer) / 1000000;
-            if(elapsed > firingDelay){
-                bullets.add(factory.createBullet(new BulletComponent(player.getPositionComponent().x,player.getPositionComponent().y, 270,5,data.get("ScreenWidth"),data.get("ScreenHeight"),2)));
-                firingTimer = System.nanoTime();
-                drawables.addAll(bullets);
-            }
-        }
-        else{
-            player.getMovementComponent().setLeft(false);
-            player.getMovementComponent().setRight(false);
-        }*/
-    }
 }
 

@@ -11,7 +11,7 @@ public class j2dMap extends AbstractMap {
 
     private final int witdthOfTiles, heightOfTiles, sizeOfTiles;
 
-    public j2dMap(GraphicsContext graphicsContext, int[][] tilesMap, int height, int width, int size) {
+    public j2dMap(GraphicsContext graphicsContext, int[][][] tilesMap, int height, int width, int size) {
         super(tilesMap, height, width, size);
         this.witdthOfTiles = width;
         this.heightOfTiles = height;
@@ -28,10 +28,12 @@ public class j2dMap extends AbstractMap {
         BufferedImage img  = GetSpriteSheet("src/resources/Tile1.png");
         BufferedImage img2  = GetSpriteSheet("src/resources/Tile2.png");
         BufferedImage img3  = GetSpriteSheet("src/resources/Tile3.png");
+        BufferedImage img4 = GetSpriteSheet("src/resources/Check.png");
+        BufferedImage img5  = GetSpriteSheet("src/resources/spikes.png");
 
         for(int y=0; y<heightOfTiles; y++){
             for(int x =0; x<witdthOfTiles; x++){
-                int number = getSpriteIndex(x,y);
+                int number = getSpriteIndex(getLevelComponent().getLevel(), x,y);
                 /*switch (number) {
                     case 1 -> {
                         img = GetSpriteSheet("src/resources/Tile1.png");
@@ -58,6 +60,10 @@ public class j2dMap extends AbstractMap {
                     if (number == 3)
                         g2d.drawImage(img3, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
 
+                    if (number == 4)
+                        g2d.drawImage(img4, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+                    if (number == 5)
+                        g2d.drawImage(img5, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
                 }
 
             }

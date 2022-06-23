@@ -2,6 +2,7 @@ package be.uantwerpen.fti.ei.geavanceerde.platform.visualistationPackage;
 
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.AbstractFactory;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractBackground;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractEnemy;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractMap;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractPlayer;
 import be.uantwerpen.fti.ei.geavanceerde.platform.helper.ConfigFileReader;
@@ -48,12 +49,17 @@ public class j2dFactory extends AbstractFactory {
 
 
     @Override
-    public AbstractMap createAMap(int[][] tileMap, int height, int width, int size) {
+    public AbstractMap createAMap(int[][][] tileMap, int height, int width, int size) {
         return new j2dMap(grCtx,tileMap, height, width, size);
     }
 
     @Override
     public void setGameDimensions(int GameCellsX, int GameCellsY) {
         this.grCtx.setGameDimensions(GameCellsX, GameCellsY);
+    }
+
+    @Override
+    public AbstractEnemy createEnemy(int x, int y, int width, int height) throws IOException {
+        return new j2dEnemy(grCtx,x,y,width,height);
     }
 }
