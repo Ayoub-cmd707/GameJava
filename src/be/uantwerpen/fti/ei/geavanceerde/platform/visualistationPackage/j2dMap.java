@@ -33,6 +33,7 @@ public class j2dMap extends AbstractMap {
 
         for(int y=0; y<heightOfTiles; y++){
             for(int x =0; x<witdthOfTiles; x++){
+                //System.out.println(" ik ben in visualisze " + getLevelComponent().getLevel());
                 int number = getSpriteIndex(getLevelComponent().getLevel(), x,y);
                 /*switch (number) {
                     case 1 -> {

@@ -109,7 +109,7 @@ public class Game {
                 abstractBackground.visualize();
                 abstractMap.visualize();
                 abstractPlayer.visualize();
-                abstractEnemy.visualize();
+                //abstractEnemy.visualize();
                 abstractFactory.render();
 
                 frames++;

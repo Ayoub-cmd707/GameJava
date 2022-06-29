@@ -18,7 +18,7 @@ public abstract class AbstractPlayer implements Drawable {
         positionComponent = new PositioningComponent(x,y,height,width);
         movementComponent = new MovementComponent();
         collisionComponent = new CollisionComponent(x,y,width,height);
-        levelComponent = new LevelComponent();
+        levelComponent = LevelComponent.getInstance();
     }
 
 

@@ -14,9 +14,11 @@ public class LevelManagerSystem {
 
     public void updateLevel(){
         if(!CollisionDetection.CheckPoint(positioningComponent.x,positioningComponent.y, 64, 64, Maps.maps[levelComponent.getLevel()])){
+            //System.out.println("ik ben in updatelevel");
             levelComponent.setLevel(1);
             positioningComponent.x =70;
             positioningComponent.y =50;
+
         }
 
     }

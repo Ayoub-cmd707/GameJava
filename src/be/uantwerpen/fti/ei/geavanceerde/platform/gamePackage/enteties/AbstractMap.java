@@ -19,7 +19,7 @@ public abstract class AbstractMap implements Drawable {
         this.heightOfTiles = height;
         this.witdthOfTiles = width;
         this.sizeOfTiles = size;
-        this.levelComponent = new LevelComponent();
+        this.levelComponent = LevelComponent.getInstance();
     }
 
     public BufferedImage GetSpriteSheet(String fileName) {

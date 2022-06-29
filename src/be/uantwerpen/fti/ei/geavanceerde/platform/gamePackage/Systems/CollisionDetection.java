@@ -60,13 +60,13 @@ public class CollisionDetection {
     public static float GetEntityYPosUnderRoofOrAboveFloor(int x, int y, int width, int height, int airSpeed){
         int currentTile = (int) (y / Game.tileSize);
         if(airSpeed > 0){
-            System.out.println("Falling Down");
+            //System.out.println("Falling Down");
             int tileYPos = currentTile * Game.tileSize;
             int yOffset = (int)(Game.tileSize - height);
             return tileYPos + 64 -1;
         }
         else {
-            System.out.println("JUMPING IN THE AIR");
+            //System.out.println("JUMPING IN THE AIR");
             return currentTile * Game.tileSize;
         }
     }
