@@ -54,11 +54,9 @@ public abstract class AbstractPlayer implements Drawable {
         } else if (movementComponent.isMoving() && inputs == AbstractInput.Inputs.RIGHT) {
             movementComponent.setRight(true);
             movementComponent.setLeft(false);
-        }
-        else if (movementComponent.isMoving() && inputs == AbstractInput.Inputs.JUMP) {
+        } else if (movementComponent.isMoving() && inputs == AbstractInput.Inputs.JUMP) {
             movementComponent.setJump(true);
-        }
-        else {
+        } else {
             movementComponent.setRight(false);
             movementComponent.setLeft(false);
         }

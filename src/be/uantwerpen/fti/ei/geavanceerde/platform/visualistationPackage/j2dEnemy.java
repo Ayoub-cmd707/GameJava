@@ -37,10 +37,10 @@ public class j2dEnemy extends AbstractEnemy {
 
     private void loadSprite() throws IOException {
 
-        animation = new BufferedImage[7];
-        BufferedImage image = ImageIO.read(new File("src/resources/enemy.png"));
+        animation = new BufferedImage[22];
+        BufferedImage image = ImageIO.read(new File("src/resources/skeleIdle.png"));
         for (int i = 0; i < animation.length; i++) {
-            animation[i] = image.getSubimage(i*64,0, 64,64);
+            animation[i] = image.getSubimage(i,0, 524,494);
         }
 
 
@@ -52,6 +52,6 @@ public class j2dEnemy extends AbstractEnemy {
         Graphics2D graphics2D = graphicsContext.getG2d();
         update();
 
-        graphics2D.drawImage(animation[aniRunningIndex],(int) getPositionComponent().x ,(int) getPositionComponent().y,-64,64,null);
+        graphics2D.drawImage(animation[aniRunningIndex],(int) getPositionComponent().x ,(int) getPositionComponent().y,64,64,null);
     }
 }

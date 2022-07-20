@@ -2,23 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d73b273-421a-4152-82e7-5891a3166f7e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/resources/skeleIdle.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/BonusComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/BonusComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/HealthComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/HealthComponent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/LevelComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/LevelComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/LevelManagerSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/LevelManagerSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/BonusComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/BonusComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/HealthComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/HealthComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/LevelComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/LevelComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dEnemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/LevelManagerSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/LevelManagerSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dEnemy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +173,8 @@
       <workItem from="1655998737302" duration="1346000" />
       <workItem from="1656014918432" duration="9787000" />
       <workItem from="1656508295354" duration="60000" />
-      <workItem from="1656508364990" duration="1609000" />
+      <workItem from="1656508364990" duration="3284000" />
+      <workItem from="1656620272048" duration="43000" />
     </task>
     <servers />
   </component>
