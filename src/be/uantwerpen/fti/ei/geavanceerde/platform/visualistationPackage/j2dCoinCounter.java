@@ -22,15 +22,15 @@ public class j2dCoinCounter extends AbstractBonus {
 
     }
 
-@Override
-public void visualize() {
+    @Override
+    public void visualize() {
         Graphics2D g2d = graphicsC.getG2d();
         g2d.setFont(font);
         g2d.setColor(Color.BLACK);
-        g2d.drawString("x",(int)((graphicsC.getFrame().getWidth()/20)),(int)(30));
+        g2d.drawString("x",(int)((graphicsC.getFrame().getWidth()/21)),(int)(30));
         String scr = String.valueOf(GetPoints());
         g2d.drawString(scr,(int)((graphicsC.getFrame().getWidth()/15)),(int)(30));
         g2d.drawImage(coin,(int)((graphicsC.getFrame().getWidth()/60)),(int)(10), null);
 
-        }
-        }
+    }
+}

@@ -89,7 +89,7 @@ public class Movement {
 
     }
     private void updateXPos(float xSpeed, int width, int height){
-        if(CollisionDetection.Move(positionComponent.x+xSpeed,positionComponent.y, width, height, Maps.maps[levelComponent.getLevel()])){
+        if(CollisionDetection.Move(positionComponent.x+xSpeed,positionComponent.y, (int) positionComponent.hitboxWidth, (int) positionComponent.hitboxHeight, Maps.maps[levelComponent.getLevel()])){
             if(movementComponent.isLeft())
                 positionComponent.x -= xSpeed;
             else if(movementComponent.isRight())

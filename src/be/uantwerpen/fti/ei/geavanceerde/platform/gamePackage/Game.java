@@ -1,10 +1,7 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage;
 
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.BonusComponent;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.Bonus;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.CollisionDetection;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.LevelManagerSystem;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.Movement;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.*;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.*;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.utilities.Maps;
 import be.uantwerpen.fti.ei.geavanceerde.platform.helper.ConfigFileReader;
@@ -26,11 +23,13 @@ public class Game {
     private final AbstractFactory abstractFactory;
     private AbstractPlayer abstractPlayer;
     private AbstractEnemy abstractEnemy;
+    private AbstractHealth abstractHealth;
     private AbstractBackground abstractBackground;
     private AbstractMap abstractMap;
     private Movement movement;
     private CollisionDetection collisionDetection;
     private Bonus bonus;
+    private Health health;
     private LevelManagerSystem levelManagerSystem;
     HashMap<String, Integer> data;
     public static int gameWidth = 0;
@@ -56,10 +55,11 @@ public class Game {
     public void initGame() throws IOException {
         inputs = abstractFactory.createInputs();
         abstractBackground = abstractFactory.background();
-        abstractPlayer = abstractFactory.createPlayer(70,50,64,64);
+        abstractPlayer = abstractFactory.createPlayer(70,50,10,10);
         abstractMap = abstractFactory.createAMap(Maps.maps,tilesHeight,tilesWidth,tileSize);
-        abstractEnemy = abstractFactory.createEnemy(70 ,300,64,64);
+        //abstractEnemy = abstractFactory.createEnemy(70 ,300,64,64);
         abstractBonus = abstractFactory.abstractBonus(abstractPlayer.getBonusComponent());
+        abstractHealth = abstractFactory.abstractHealth(abstractPlayer.getHealthComponent());
         movement = new Movement(abstractPlayer.getMovement(), abstractPlayer.getPosition(),abstractPlayer.getLevelComponent());
         collisionDetection = new CollisionDetection(abstractPlayer.getLevelComponent());
 
@@ -67,6 +67,7 @@ public class Game {
 
 
         bonus = new Bonus(abstractPlayer.getCollisionComponent(),abstractPlayer.getPosition(),abstractPlayer.getBonusComponent(),abstractPlayer.getLevelComponent());
+        health = new Health(abstractPlayer.getCollisionComponent(),abstractPlayer.getPosition(),abstractPlayer.getMovement(),abstractPlayer.getHealthComponent(),abstractPlayer.getLevelComponent());
     }
 
     private volatile boolean runWhile = false;
@@ -109,6 +110,7 @@ public class Game {
                 movement.update();
                 levelManagerSystem.updateLevel();
                 bonus.coincheck();
+                health.CheckForhealth();
                 updates++;
                 deltaU--;
             }
@@ -117,9 +119,10 @@ public class Game {
 
                 abstractBackground.visualize();
                 abstractMap.visualize();
-                abstractEnemy.visualize();
+                //abstractEnemy.visualize();
                 abstractPlayer.visualize();
-
+                abstractBonus.visualize();
+                abstractHealth.visualize();
                 abstractFactory.render();
 
                 frames++;

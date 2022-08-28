@@ -83,13 +83,21 @@ public class j2dPlayer extends AbstractPlayer {
 
         if(getInput().toString()== "RIGHT"  ){
             graphics2D.drawImage(runningAnimation[aniRunningIndex],(int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX() +1,(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),64,64,null);
+            graphics2D.setColor(Color.RED);
+            graphics2D.drawRect((int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX(),(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),64,64);
+
         }
         else if (getInput().toString()== "LEFT"){
             graphics2D.drawImage(runningAnimation[aniRunningIndex],(int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX()+ 64,(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),-64,64,null);
             //graphics2D.drawImage(runningAnimation[aniRunningIndex],((int) getPosition().x + 64)-1,(int) getPosition().y,-64,64,null);
+            graphics2D.setColor(Color.RED);
+            graphics2D.drawRect((int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX(),(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),64,64);
+
         }
         else if (getInput().toString() == "IDLE" || getInput().toString()== "JUMP"){
             graphics2D.drawImage(idleAnimation[aniIdleIndex],(int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX(),(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),64,64,null);
+            graphics2D.setColor(Color.RED);
+            graphics2D.drawRect((int)( getPosition().x- xDrawOffset)-graphicsContext.getCamX(),(int) (getPosition().y- yDrawOffset)-graphicsContext.getCamY(),64,64);
         }
 
 

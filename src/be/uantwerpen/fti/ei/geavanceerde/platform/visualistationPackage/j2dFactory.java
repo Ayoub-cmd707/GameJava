@@ -2,6 +2,7 @@ package be.uantwerpen.fti.ei.geavanceerde.platform.visualistationPackage;
 
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.AbstractFactory;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.BonusComponent;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.HealthComponent;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.*;
 import be.uantwerpen.fti.ei.geavanceerde.platform.helper.ConfigFileReader;
 
@@ -64,6 +65,10 @@ public class j2dFactory extends AbstractFactory {
         return new j2dCoinCounter(grCtx,bonusComponent);
     }
 
+    @Override
+    public AbstractHealth abstractHealth(HealthComponent healthComponent) {
+        return new j2dHealthBar(grCtx,healthComponent);
+    }
 
 
 }

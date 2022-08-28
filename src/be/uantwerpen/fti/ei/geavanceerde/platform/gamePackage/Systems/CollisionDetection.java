@@ -136,7 +136,7 @@ public class CollisionDetection {
     }
 
 
-    public static boolean Damage(float x, float y, int width, int height, int[][] map){
+    public static boolean DamageWithSpike(float x, float y, int width, int height, int[][] map){
         if (!CheckForDamage(x,y,map)) {
             if (!CheckForDamage(x + width, y + height, map)) {
                 if (!CheckForDamage(x + width, y, map)) {
@@ -169,11 +169,11 @@ public class CollisionDetection {
         CollisionComponent.positionY = y;
 
 
-        int value = map[(int)yIndex][(int)xIndex];
+        int value = map[(int)yIndex + 1][(int)xIndex];
 
-        if (value == 4)
+        if (value == 5) {
             return true;
-
+        }
         return false;
     }
 
@@ -213,7 +213,7 @@ public class CollisionDetection {
 
         int value = map[(int)yIndex][(int)xIndex];
 
-        if (value == -2)
+        if (value == 6)
             return true;
 
         return false;

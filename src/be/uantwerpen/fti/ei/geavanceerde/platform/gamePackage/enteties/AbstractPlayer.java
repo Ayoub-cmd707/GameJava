@@ -10,6 +10,7 @@ public abstract class AbstractPlayer implements Drawable {
     private final CollisionComponent collisionComponent;
     private final LevelComponent levelComponent;
     private final BonusComponent bonusComponent;
+    private final HealthComponent healthComponent;
     private AbstractInput.Inputs input;
 
     public AbstractPlayer(int x, int y , int width, int height){
@@ -18,6 +19,7 @@ public abstract class AbstractPlayer implements Drawable {
         collisionComponent = new CollisionComponent(x,y,width,height);
         levelComponent = LevelComponent.getInstance();
         bonusComponent = new BonusComponent();
+        healthComponent = new HealthComponent();
     }
 
 
@@ -42,6 +44,10 @@ public abstract class AbstractPlayer implements Drawable {
     }
 
     public BonusComponent getBonusComponent(){ return bonusComponent; }
+
+    public HealthComponent getHealthComponent() {
+        return healthComponent;
+    }
 
     public void setDirection(AbstractInput.Inputs input) {
         this.input = input;

@@ -3,10 +3,10 @@ package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components;
 public class HealthComponent {
 
     private boolean damageTaken;
-    private int health;
+    private int health = 3;
     public HealthComponent() {
-        damageTaken =false;
-        health = 3;
+        damageTaken = false;
+
     }
 
     public boolean isDamageTaken() {

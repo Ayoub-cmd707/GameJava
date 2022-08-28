@@ -64,9 +64,12 @@ public class j2dMap extends AbstractMap {
 
                     if (number == 4)
                         g2d.drawImage(img4, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
-                    if (number == 5)
+                    if (number == 5) {
                         g2d.drawImage(img5, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
-                    if (number == -2)
+                        g2d.setColor(Color.RED);
+                        g2d.drawRect((int) (x * sizeOfTiles)- graphicsContext.getCamX(), (int) (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles);
+                    }
+                    if (number == 6)
                         g2d.drawImage(img6, (x * sizeOfTiles) - graphicsContext.getCamX() + 16, (y * sizeOfTiles) - graphicsContext.getCamY() +32, 32, 32, null);
 
                 }

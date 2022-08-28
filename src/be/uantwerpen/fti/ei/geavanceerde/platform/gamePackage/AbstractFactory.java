@@ -1,6 +1,7 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage;
 
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.BonusComponent;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.HealthComponent;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.*;
 import be.uantwerpen.fti.ei.geavanceerde.platform.visualistationPackage.j2dInputs;
 
@@ -14,6 +15,7 @@ public abstract class AbstractFactory {
     public abstract void setGameDimensions(int CellX, int CellY);
     public abstract AbstractEnemy createEnemy(int x, int y, int width, int height ) throws IOException;
     public abstract AbstractBonus abstractBonus(BonusComponent bonusComponent);
+    public abstract AbstractHealth abstractHealth(HealthComponent healthComponent);
     public abstract void render();
 
 }
