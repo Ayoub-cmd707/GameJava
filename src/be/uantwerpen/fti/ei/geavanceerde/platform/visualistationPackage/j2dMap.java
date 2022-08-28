@@ -30,6 +30,7 @@ public class j2dMap extends AbstractMap {
         BufferedImage img3  = GetSpriteSheet("src/resources/Tile3.png");
         BufferedImage img4 = GetSpriteSheet("src/resources/Check.png");
         BufferedImage img5  = GetSpriteSheet("src/resources/spikes.png");
+        BufferedImage img6 = GetSpriteSheet("src/resources/star.png");
 
         for(int y=0; y<heightOfTiles; y++){
             for(int x =0; x<witdthOfTiles; x++){
@@ -65,6 +66,9 @@ public class j2dMap extends AbstractMap {
                         g2d.drawImage(img4, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
                     if (number == 5)
                         g2d.drawImage(img5, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+                    if (number == -2)
+                        g2d.drawImage(img6, (x * sizeOfTiles) - graphicsContext.getCamX() + 16, (y * sizeOfTiles) - graphicsContext.getCamY() +32, 32, 32, null);
+
                 }
 
             }

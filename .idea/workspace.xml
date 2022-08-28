@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d73b273-421a-4152-82e7-5891a3166f7e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/resources/skeleIdle.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractPlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJava/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dEnemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/BonusComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Components/BonusComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/Bonus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/Bonus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/Systems/CollisionDetection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/enteties/AbstractPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/utilities/Maps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/gamePackage/utilities/Maps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/uantwerpen/fti/ei/geavanceerde/platform/visualistationPackage/j2dMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,6 +174,12 @@
       <workItem from="1656508295354" duration="60000" />
       <workItem from="1656508364990" duration="3284000" />
       <workItem from="1656620272048" duration="43000" />
+      <workItem from="1658320007449" duration="596000" />
+      <workItem from="1660041630596" duration="1202000" />
+      <workItem from="1660566328017" duration="1190000" />
+      <workItem from="1661509775166" duration="1195000" />
+      <workItem from="1661620183080" duration="1708000" />
+      <workItem from="1661679013092" duration="11313000" />
     </task>
     <servers />
   </component>

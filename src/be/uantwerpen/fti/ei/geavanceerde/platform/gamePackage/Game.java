@@ -1,5 +1,7 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage;
 
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.BonusComponent;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.Bonus;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.CollisionDetection;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.LevelManagerSystem;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Systems.Movement;
@@ -28,6 +30,7 @@ public class Game {
     private AbstractMap abstractMap;
     private Movement movement;
     private CollisionDetection collisionDetection;
+    private Bonus bonus;
     private LevelManagerSystem levelManagerSystem;
     HashMap<String, Integer> data;
     public static int gameWidth = 0;
@@ -55,10 +58,14 @@ public class Game {
         abstractBackground = abstractFactory.background();
         abstractPlayer = abstractFactory.createPlayer(70,50,64,64);
         abstractMap = abstractFactory.createAMap(Maps.maps,tilesHeight,tilesWidth,tileSize);
+        abstractEnemy = abstractFactory.createEnemy(70 ,300,64,64);
         movement = new Movement(abstractPlayer.getMovement(), abstractPlayer.getPosition(),abstractPlayer.getLevelComponent());
         collisionDetection = new CollisionDetection(abstractPlayer.getLevelComponent());
+
         levelManagerSystem = new LevelManagerSystem(abstractPlayer.getLevelComponent(),abstractPlayer.getPosition());
-        abstractEnemy = abstractFactory.createEnemy(70 ,300,64,64);
+
+
+        bonus = new Bonus(abstractPlayer.getCollisionComponent(),abstractPlayer.getPosition(),abstractPlayer.getBonusComponent(),abstractPlayer.getLevelComponent());
     }
 
     private volatile boolean runWhile = false;
@@ -100,6 +107,7 @@ public class Game {
                 }
                 movement.update();
                 levelManagerSystem.updateLevel();
+                bonus.coincheck();
                 updates++;
                 deltaU--;
             }

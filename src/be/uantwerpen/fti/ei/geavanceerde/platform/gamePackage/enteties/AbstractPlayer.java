@@ -1,9 +1,6 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties;
 
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.CollisionComponent;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.LevelComponent;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.MovementComponent;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.PositioningComponent;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.*;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Drawable;
 
 public abstract class AbstractPlayer implements Drawable {
@@ -12,6 +9,7 @@ public abstract class AbstractPlayer implements Drawable {
     private final MovementComponent movementComponent;
     private final CollisionComponent collisionComponent;
     private final LevelComponent levelComponent;
+    private final BonusComponent bonusComponent;
     private AbstractInput.Inputs input;
 
     public AbstractPlayer(int x, int y , int width, int height){
@@ -19,6 +17,7 @@ public abstract class AbstractPlayer implements Drawable {
         movementComponent = new MovementComponent();
         collisionComponent = new CollisionComponent(x,y,width,height);
         levelComponent = LevelComponent.getInstance();
+        bonusComponent = new BonusComponent();
     }
 
 
@@ -41,6 +40,8 @@ public abstract class AbstractPlayer implements Drawable {
     public AbstractInput.Inputs getInput(){
         return input;
     }
+
+    public BonusComponent getBonusComponent(){ return bonusComponent; }
 
     public void setDirection(AbstractInput.Inputs input) {
         this.input = input;

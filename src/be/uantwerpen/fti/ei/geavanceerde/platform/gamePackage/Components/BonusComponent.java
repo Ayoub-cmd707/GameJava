@@ -1,20 +1,20 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components;
 
 public class BonusComponent {
-    private int bonusDiamants;
+    private int bonusCoins;
     private boolean bonusActivation;
 
     public BonusComponent() {
-       bonusDiamants = 0;
-       bonusActivation = false;
+        bonusCoins = 0;
+        bonusActivation = false;
     }
 
-    public int getBonusDiamants() {
-        return bonusDiamants;
+    public int getBonusCoins() {
+        return bonusCoins;
     }
 
-    public void setBonusDiamants(int bonusDiamants) {
-        this.bonusDiamants = bonusDiamants;
+    public void setBonusCoins(int bonusDiamants) {
+        this.bonusCoins = bonusDiamants;
     }
 
     public boolean isBonusActivation() {

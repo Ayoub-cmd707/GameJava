@@ -10,6 +10,7 @@ import java.awt.geom.Rectangle2D;
 
 public class CollisionDetection {
     private static LevelComponent levelComponent;
+
     public CollisionDetection(LevelComponent levelComponent) {
         this.levelComponent = levelComponent;
     }
@@ -49,7 +50,7 @@ public class CollisionDetection {
 
 
         int value = map[(int)yIndex][(int)xIndex];
-
+        //System.out.println("collision: "+value);
         if (value == 1 || value == 2 || value == 5)
             return true;
 
@@ -171,6 +172,48 @@ public class CollisionDetection {
         int value = map[(int)yIndex][(int)xIndex];
 
         if (value == 4)
+            return true;
+
+        return false;
+    }
+
+
+    public static boolean coins(float x, float y, int width, int height, int[][] map){
+        if (!CheckForCoins(x,y,map)) {
+            if (!CheckForCoins(x + width, y + height, map)) {
+                if (!CheckForCoins(x + width, y, map)) {
+                    if (!CheckForCoins(x, y + height, map)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        //System.out.println("Ik ben tegen de tile");
+        return false;
+    }
+
+    private static boolean CheckForCoins(float x,float y, int[][] map){
+
+        if (x < 0.5f || x >= Game.tileSize * Game.tilesWidth){
+            System.out.println("rand x-as");
+            return true;
+        }
+
+        if (y < 0.5f || y >= Game.tileSize * Game.tilesWidth){
+            System.out.println("rand y-as");
+            return true;
+        }
+
+
+        float xIndex = x / Game.tileSize;
+        float yIndex = y / Game.tileSize;
+        CollisionComponent.positionX = x;
+        CollisionComponent.positionY = y;
+
+
+        int value = map[(int)yIndex][(int)xIndex];
+
+        if (value == -2)
             return true;
 
         return false;
