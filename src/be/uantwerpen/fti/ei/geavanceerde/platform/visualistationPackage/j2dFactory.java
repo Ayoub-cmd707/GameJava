@@ -1,10 +1,8 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.visualistationPackage;
 
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.AbstractFactory;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractBackground;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractEnemy;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractMap;
-import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractPlayer;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.BonusComponent;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.*;
 import be.uantwerpen.fti.ei.geavanceerde.platform.helper.ConfigFileReader;
 
 import java.io.IOException;
@@ -29,6 +27,7 @@ public class j2dFactory extends AbstractFactory {
         this.grCtx.render();
     }
 
+
     @Override
     public AbstractPlayer createPlayer(int x, int y, int hitboxWidth, int hitboxHeight) throws IOException {
         return new j2dPlayer(grCtx, x, y,hitboxWidth,hitboxHeight);
@@ -45,9 +44,6 @@ public class j2dFactory extends AbstractFactory {
     }
 
 
-
-
-
     @Override
     public AbstractMap createAMap(int[][][] tileMap, int height, int width, int size) {
         return new j2dMap(grCtx,tileMap, height, width, size);
@@ -62,4 +58,12 @@ public class j2dFactory extends AbstractFactory {
     public AbstractEnemy createEnemy(int x, int y, int width, int height) throws IOException {
         return new j2dEnemy(grCtx,x,y,width,height);
     }
+
+    @Override
+    public AbstractBonus abstractBonus(BonusComponent bonusComponent) {
+        return new j2dCoinCounter(grCtx,bonusComponent);
+    }
+
+
+
 }

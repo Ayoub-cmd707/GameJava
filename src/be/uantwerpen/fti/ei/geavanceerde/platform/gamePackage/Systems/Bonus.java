@@ -39,16 +39,13 @@ public class Bonus {
             }*/
             float xIndex = positioningComponent.x / Game.tileSize;
             float yIndex = positioningComponent.y / Game.tileSize;
-            System.out.println("x index is " + (int)xIndex);
-            System.out.println("y index is "+ (int)yIndex);
-            //System.out.println("wat is deze value "+ Maps.maps[levelComponent.getLevel()][(int)yIndex  ][(int)xIndex ]);
-            //System.out.println("tille: " +xIndex);
-            if(!CollisionDetection.coins(positioningComponent.x,positioningComponent.y,23,23,Maps.maps[levelComponent.getLevel()])){
+
+            if(!CollisionDetection.coins(positioningComponent.x,positioningComponent.y,1,1,Maps.maps[levelComponent.getLevel()])){
                 bonusComponent.setBonusCoins(bonusComponent.getBonusCoins() + 1);
-                //System.out.println("point activated " + bonusComponent.getBonusCoins());
+                System.out.println("point activated " + bonusComponent.getBonusCoins());
 
 
-                Maps.maps[levelComponent.getLevel()][(int)yIndex][(int)xIndex] = 0;
+                Maps.maps[levelComponent.getLevel()][(int)yIndex + 1 ][(int)xIndex] = 0;
 
             }
         }

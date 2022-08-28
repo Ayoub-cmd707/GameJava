@@ -36,7 +36,7 @@ public class Game {
     public static int gameWidth = 0;
     public static int gameHeigth =0;
     private AbstractInput inputs;
-
+    private AbstractBonus abstractBonus;
     //map settins
     public final static int tilePictureSize = 64;
     public final static float scale = 1.0f;
@@ -59,6 +59,7 @@ public class Game {
         abstractPlayer = abstractFactory.createPlayer(70,50,64,64);
         abstractMap = abstractFactory.createAMap(Maps.maps,tilesHeight,tilesWidth,tileSize);
         abstractEnemy = abstractFactory.createEnemy(70 ,300,64,64);
+        abstractBonus = abstractFactory.abstractBonus(abstractPlayer.getBonusComponent());
         movement = new Movement(abstractPlayer.getMovement(), abstractPlayer.getPosition(),abstractPlayer.getLevelComponent());
         collisionDetection = new CollisionDetection(abstractPlayer.getLevelComponent());
 
