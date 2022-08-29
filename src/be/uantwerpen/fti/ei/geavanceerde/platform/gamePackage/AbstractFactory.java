@@ -13,7 +13,6 @@ public abstract class AbstractFactory {
     public abstract AbstractBackground background();
     public abstract j2dInputs createInputs();
     public abstract void setGameDimensions(int CellX, int CellY);
-    public abstract AbstractEnemy createEnemy(int x, int y, int width, int height ) throws IOException;
     public abstract AbstractBonus abstractBonus(BonusComponent bonusComponent);
     public abstract AbstractHealth abstractHealth(HealthComponent healthComponent);
     public abstract void render();

@@ -171,7 +171,7 @@ public class CollisionDetection {
 
         int value = map[(int)yIndex + 1][(int)xIndex];
 
-        if (value == 5) {
+        if (value == 5 || value == 7) {
             return true;
         }
         return false;

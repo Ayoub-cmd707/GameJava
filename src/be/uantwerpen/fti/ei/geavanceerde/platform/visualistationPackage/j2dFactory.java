@@ -55,10 +55,6 @@ public class j2dFactory extends AbstractFactory {
         this.grCtx.setGameDimensions(GameCellsX, GameCellsY);
     }
 
-    @Override
-    public AbstractEnemy createEnemy(int x, int y, int width, int height) throws IOException {
-        return new j2dEnemy(grCtx,x,y,width,height);
-    }
 
     @Override
     public AbstractBonus abstractBonus(BonusComponent bonusComponent) {

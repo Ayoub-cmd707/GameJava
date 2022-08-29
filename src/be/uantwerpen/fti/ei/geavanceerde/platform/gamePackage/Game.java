@@ -22,7 +22,7 @@ public class Game {
 
     private final AbstractFactory abstractFactory;
     private AbstractPlayer abstractPlayer;
-    private AbstractEnemy abstractEnemy;
+
     private AbstractHealth abstractHealth;
     private AbstractBackground abstractBackground;
     private AbstractMap abstractMap;
@@ -57,7 +57,6 @@ public class Game {
         abstractBackground = abstractFactory.background();
         abstractPlayer = abstractFactory.createPlayer(70,50,10,10);
         abstractMap = abstractFactory.createAMap(Maps.maps,tilesHeight,tilesWidth,tileSize);
-        //abstractEnemy = abstractFactory.createEnemy(70 ,300,64,64);
         abstractBonus = abstractFactory.abstractBonus(abstractPlayer.getBonusComponent());
         abstractHealth = abstractFactory.abstractHealth(abstractPlayer.getHealthComponent());
         movement = new Movement(abstractPlayer.getMovement(), abstractPlayer.getPosition(),abstractPlayer.getLevelComponent());
@@ -119,7 +118,6 @@ public class Game {
 
                 abstractBackground.visualize();
                 abstractMap.visualize();
-                //abstractEnemy.visualize();
                 abstractPlayer.visualize();
                 abstractBonus.visualize();
                 abstractHealth.visualize();
