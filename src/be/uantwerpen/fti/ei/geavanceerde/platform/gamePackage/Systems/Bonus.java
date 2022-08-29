@@ -6,13 +6,23 @@ import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.LevelCo
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.PositioningComponent;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Game;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.utilities.Maps;
-
+/**
+ * Bonus
+ * @author Ayoub Aouraghe
+ * */
 public class Bonus {
     private final CollisionComponent collisionComponent;
     private final PositioningComponent positioningComponent;
     private final BonusComponent bonusComponent;
     private final LevelComponent levelComponent;
 
+    /**
+     * Bonus
+     * @param collisionComponent
+     * @param positioningComponent
+     * @param bonusComponent
+     * @param levelComponent
+     */
     public Bonus(CollisionComponent collisionComponent, PositioningComponent positioningComponent, BonusComponent bonusComponent, LevelComponent levelComponent) {
         this.collisionComponent = collisionComponent;
         this.positioningComponent = positioningComponent;
@@ -20,6 +30,11 @@ public class Bonus {
         this.levelComponent = levelComponent;
 
     }
+
+    /**
+     * coinBonusSystem function
+     * checks for collision with the coins and remove the coin from the level table
+     */
     private void coinBonusSystem(){
 
         if (bonusComponent != null) {
@@ -35,6 +50,10 @@ public class Bonus {
         }
     }
 
+    /**
+     * coincheck function
+     * make the coinBonusSystem function available in other classes
+     */
     public void coincheck(){
         coinBonusSystem();
     }

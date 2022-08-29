@@ -6,7 +6,10 @@ import be.uantwerpen.fti.ei.geavanceerde.platform.helper.ConfigFileReader;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.util.HashMap;
-
+/**
+ * CollisionComponent
+ * @author Ayoub Aouraghe
+ * */
 public class CollisionComponent {
    protected float x,y;
    protected int width, height;
@@ -15,6 +18,13 @@ public class CollisionComponent {
    public static float positionX;
    public static float positionY;
 
+    /**
+     * CollisionComponent
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     */
     public CollisionComponent(float x, float y, int width, int height ) {
         this.x = x;
         this.y = y;
@@ -24,19 +34,14 @@ public class CollisionComponent {
         
     }
 
-
+    /**
+     * Hitbox value created
+     */
     private void initHitbox() {
         hitBox = new Rectangle((int) x,(int) y,width,height);
     }
 
-    protected void updateHitbox(){
-        hitBox.x = (int) x;
-        hitBox.y = (int) y;
-    }
 
-    public Rectangle getHitBox(){
-        return hitBox;
-    }
 
 
 

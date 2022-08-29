@@ -3,25 +3,32 @@ package be.uantwerpen.fti.ei.geavanceerde.platform.visualistationPackage;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.AbstractFactory;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.BonusComponent;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.HealthComponent;
+import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.ProjectileComponent;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.*;
 import be.uantwerpen.fti.ei.geavanceerde.platform.helper.ConfigFileReader;
 
 import java.io.IOException;
 import java.util.HashMap;
-
+/**
+ * j2dFactory
+ * @author Ayoub Aouraghe
+ * */
 public class j2dFactory extends AbstractFactory {
 
     private final GraphicsContext grCtx;
+
+    /**
+     * j2dFactory
+     * @param graphics_config
+     */
     public j2dFactory(String graphics_config) {
         HashMap<String, Integer> data = ConfigFileReader.getConfigFileReaderInstance().loadOrCreateConfig(graphics_config);
         this.grCtx = new GraphicsContext((int)(data.get("ScreenWidth")), (int)(data.get("ScreenHeight")));
     }
 
-    /*@Override
-    public AbstractInput createInput() {
-        return new j2dInput(grCtx.getFrame());
-    }*/
-
+    /**
+     * abstract factory implementation
+     */
 
     @Override
     public void render() {
@@ -64,6 +71,11 @@ public class j2dFactory extends AbstractFactory {
     @Override
     public AbstractHealth abstractHealth(HealthComponent healthComponent) {
         return new j2dHealthBar(grCtx,healthComponent);
+    }
+
+    @Override
+    public AbstractProjectiles abstractProjectiles(ProjectileComponent projectileComponent) {
+        return new j2dProjectile(grCtx,projectileComponent);
     }
 
 

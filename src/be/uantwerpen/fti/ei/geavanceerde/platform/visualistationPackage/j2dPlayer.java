@@ -9,7 +9,10 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+/**
+ * j2dPlayer
+ * @author Ayoub Aouraghe
+ * */
 public class j2dPlayer extends AbstractPlayer {
 
     private final GraphicsContext graphicsContext;
@@ -18,12 +21,24 @@ public class j2dPlayer extends AbstractPlayer {
     private BufferedImage[] idleAnimation,runningAnimation;
     private int aniTick, aniRunningIndex,aniIdleIndex, aniSpeed = 3;
 
+    /**
+     * j2dPlayer
+     * @param grCtx
+     * @param x
+     * @param y
+     * @param hitboxWidth
+     * @param hitboxHeight
+     * @throws IOException
+     */
     public j2dPlayer(GraphicsContext grCtx, int x, int y, int hitboxWidth, int hitboxHeight) throws IOException {
         super(x,y,hitboxWidth,hitboxHeight);
         loadSprite();
         this.graphicsContext = grCtx;
     }
 
+    /**
+     * update function
+     */
     private void update(){
         aniTick++;
         if (aniTick>= aniSpeed){
@@ -43,7 +58,10 @@ public class j2dPlayer extends AbstractPlayer {
         }
     }
 
-
+    /**
+     * loadsprite function
+     * @throws IOException
+     */
     private void loadSprite() throws IOException {
         idleAnimation = new BufferedImage[8];
         runningAnimation = new BufferedImage[6];
@@ -59,6 +77,9 @@ public class j2dPlayer extends AbstractPlayer {
 
     }
 
+    /**
+     * visualize function
+     */
     @Override
     public void visualize() {
         Graphics2D graphics2D = graphicsContext.getG2d();

@@ -3,6 +3,11 @@ package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.*;
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Drawable;
 
+import java.util.ArrayList;
+/**
+ * AbstractPlayer
+ * @author Ayoub Aouraghe
+ * */
 public abstract class AbstractPlayer implements Drawable {
 
     private final PositioningComponent positionComponent;
@@ -11,8 +16,16 @@ public abstract class AbstractPlayer implements Drawable {
     private final LevelComponent levelComponent;
     private final BonusComponent bonusComponent;
     private final HealthComponent healthComponent;
+    private final ArrayList<ProjectileComponent> bulletsComponent;
     private AbstractInput.Inputs input;
 
+    /**
+     * AbstractPlayer
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     */
     public AbstractPlayer(int x, int y , int width, int height){
         positionComponent = new PositioningComponent(x,y,height,width);
         movementComponent = new MovementComponent();
@@ -20,9 +33,13 @@ public abstract class AbstractPlayer implements Drawable {
         levelComponent = LevelComponent.getInstance();
         bonusComponent = new BonusComponent();
         healthComponent = new HealthComponent();
+        this.bulletsComponent = new ArrayList<>();
     }
 
-
+    /**
+     * Getters and Setters
+     * @return
+     */
     public PositioningComponent getPosition(){
         return  positionComponent;
     }
@@ -53,8 +70,12 @@ public abstract class AbstractPlayer implements Drawable {
         this.input = input;
     }
 
-
+    /**
+     * movements function for letting the player move
+     * @param inputs
+     */
     public void checkMovement(AbstractInput.Inputs inputs) {
+
         if (movementComponent.isMoving() && inputs == AbstractInput.Inputs.LEFT) {
             movementComponent.setLeft(true);
             movementComponent.setRight(true);

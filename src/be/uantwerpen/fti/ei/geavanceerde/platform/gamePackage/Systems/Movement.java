@@ -7,11 +7,21 @@ import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components.Positio
 import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.utilities.Maps;
 
 import java.util.Map;
-
+/**
+ * Movement
+ * @author Ayoub Aouraghe
+ * */
 public class Movement {
     private PositioningComponent positionComponent;
     private MovementComponent movementComponent;
     private LevelComponent levelComponent;
+
+    /**
+     * Movement
+     * @param movementComponent
+     * @param positionComponent
+     * @param levelComponent
+     */
     public Movement(MovementComponent movementComponent, PositioningComponent positionComponent, LevelComponent levelComponent){
         this.movementComponent = movementComponent;
         this.positionComponent = positionComponent;
@@ -20,6 +30,10 @@ public class Movement {
         movementComponent.setxSpeed(4);
     }
 
+    /**
+     * updateMovement function
+     * updates the movement
+     */
     private void updateMovement(){
         movementComponent.setMoving(false);
 
@@ -28,36 +42,6 @@ public class Movement {
 
             movementComponent.setJump(false);
         }
-//        if(movementComponent.isLeft()){
-//            if(!CollisionDetection.Move(positionComponent.x -5 , positionComponent.y , 64,64, Maps.map1)){
-//                movementComponent.setLeft(false);
-//                System.out.println("collsioion van links !Uasb");
-//                positionComponent.x = positionComponent.getX();
-//                movementComponent.setxSpeed(0);
-//            }
-//
-//
-//            positionComponent.x -= movementComponent.getxSpeed();
-//            positionComponent.setX(positionComponent.x);
-//        }else if(movementComponent.isRight()){
-//        if(!CollisionDetection.Move(positionComponent.x, positionComponent.y, 64,64, Maps.map1)){
-//            movementComponent.setRight(false);
-//            movementComponent.setxSpeed(0);
-//            System.out.println("collsioion van rechts !Uasb");
-//            positionComponent.x = positionComponent.getX();
-//        }
-//
-//            positionComponent.x +=movementComponent.getxSpeed();;
-//            positionComponent.setX(positionComponent.x);
-//
-//
-//        }else {
-//            movementComponent.setLeft(false);
-//            movementComponent.setRight(false);
-//            movementComponent.setJump(false);
-//            positionComponent.x = positionComponent.getX();
-//            movementComponent.setxSpeed(4);
-//        }
 
 
         if(!movementComponent.isInAir()){
@@ -88,6 +72,14 @@ public class Movement {
 
 
     }
+
+    /**
+     * updateXPos function
+     * update of the x-as
+     * @param xSpeed
+     * @param width
+     * @param height
+     */
     private void updateXPos(float xSpeed, int width, int height){
         if(CollisionDetection.Move(positionComponent.x+xSpeed,positionComponent.y, (int) positionComponent.hitboxWidth, (int) positionComponent.hitboxHeight, Maps.maps[levelComponent.getLevel()])){
             if(movementComponent.isLeft())
@@ -98,6 +90,10 @@ public class Movement {
         else{positionComponent.x = CollisionDetection.GetEntityPosNextToWall((int)positionComponent.x,(int)positionComponent.y, width, height, xSpeed);}
     }
 
+    /**
+     * jump function
+     * jumping function
+     */
     public void jump(){
         if(movementComponent.isInAir()){return;}
         movementComponent.setInAir(true);
@@ -108,10 +104,9 @@ public class Movement {
     }
 
 
-
-
-
-
+    /**
+     * update functions
+     */
     public void update() { updateMovement(); }
 }
 

@@ -1,21 +1,26 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components;
 
+/**
+ * HealthComponent
+ * @author Ayoub Aouraghe
+ * */
 public class HealthComponent {
 
     private boolean damageTaken;
     private int health = 3;
+
+    /**
+     * HealthComponent
+     */
     public HealthComponent() {
         damageTaken = false;
 
     }
 
-    public boolean isDamageTaken() {
-        return damageTaken;
-    }
-
-    public void setDamageTaken(boolean damageTaken) {
-        this.damageTaken = damageTaken;
-    }
+    /**
+     * getters and setters
+     * @return
+     */
 
     public int getHealth() {
         return health;

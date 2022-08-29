@@ -4,13 +4,24 @@ import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractM
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
+/**
+ * j2dMap
+ * @author Ayoub Aouraghe
+ * */
 public class j2dMap extends AbstractMap {
     private GraphicsContext graphicsContext;
 
 
     private final int witdthOfTiles, heightOfTiles, sizeOfTiles;
 
+    /**
+     * j2dMap
+     * @param graphicsContext
+     * @param tilesMap
+     * @param height
+     * @param width
+     * @param size
+     */
     public j2dMap(GraphicsContext graphicsContext, int[][][] tilesMap, int height, int width, int size) {
         super(tilesMap, height, width, size);
         this.witdthOfTiles = width;
@@ -21,10 +32,12 @@ public class j2dMap extends AbstractMap {
     }
 
 
-
+    /**
+     * visualize function
+     */
     @Override
     public void visualize() {
-        Graphics2D g2d = graphicsContext.getG2d();
+        Graphics2D graphics2D = graphicsContext.getG2d();
         BufferedImage img  = GetSpriteSheet("src/resources/Tile1.png");
         BufferedImage img2  = GetSpriteSheet("src/resources/Tile2.png");
         BufferedImage img3  = GetSpriteSheet("src/resources/Tile3.png");
@@ -35,45 +48,32 @@ public class j2dMap extends AbstractMap {
 
         for(int y=0; y<heightOfTiles; y++){
             for(int x =0; x<witdthOfTiles; x++){
-                //System.out.println(" ik ben in visualisze " + getLevelComponent().getLevel());
+
                 int number = getSpriteIndex(getLevelComponent().getLevel(), x,y);
-                /*switch (number) {
-                    case 1 -> {
-                        img = GetSpriteSheet("src/resources/Tile1.png");
-                        g2d.drawImage(img, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
-                    }
-                    case 2 -> {
-                        img = GetSpriteSheet("src/resources/Tile2.png");
-                        g2d.drawImage(img, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
-                    }
-                    case 3 -> {
-                        img = GetSpriteSheet("src/resources/Tile3.png");
-                        g2d.drawImage(img, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
-                    }
-                }*/
+
 
                 if (number != 0) {
 
                     if (number == 1)
-                        g2d.drawImage(img, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+                        graphics2D.drawImage(img, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
 
                     if (number == 2)
-                        g2d.drawImage(img2, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+                        graphics2D.drawImage(img2, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
 
                     if (number == 3)
-                        g2d.drawImage(img3, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+                        graphics2D.drawImage(img3, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
 
                     if (number == 4)
-                        g2d.drawImage(img4, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+                        graphics2D.drawImage(img4, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
                     if (number == 5) {
-                        g2d.drawImage(img5, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
-                        g2d.setColor(Color.RED);
-                        g2d.drawRect((int) (x * sizeOfTiles)- graphicsContext.getCamX(), (int) (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles);
+                        graphics2D.drawImage(img5, (x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles, null);
+                        graphics2D.setColor(Color.RED);
+                        graphics2D.drawRect((int) (x * sizeOfTiles)- graphicsContext.getCamX(), (int) (y * sizeOfTiles) - graphicsContext.getCamY(), sizeOfTiles, sizeOfTiles);
                     }
                     if (number == 6)
-                        g2d.drawImage(img6, (x * sizeOfTiles) - graphicsContext.getCamX() + 16, (y * sizeOfTiles) - graphicsContext.getCamY() +32, 32, 32, null);
+                        graphics2D.drawImage(img6, (x * sizeOfTiles) - graphicsContext.getCamX() + 16, (y * sizeOfTiles) - graphicsContext.getCamY() +32, 32, 32, null);
                     if (number == 7)
-                        g2d.drawImage(img7,(x * sizeOfTiles) - graphicsContext.getCamX(), (y * sizeOfTiles) - graphicsContext.getCamY() , -102, 74, null);
+                        graphics2D.drawImage(img7,(x * sizeOfTiles) - graphicsContext.getCamX() +80, (y * sizeOfTiles) - graphicsContext.getCamY() , -80, 50, null);
 
                 }
 

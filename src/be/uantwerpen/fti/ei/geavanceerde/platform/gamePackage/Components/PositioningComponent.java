@@ -1,5 +1,8 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components;
-
+/**
+ * PositioningComponent
+ * @author Ayoub Aouraghe
+ * */
 public class PositioningComponent {
 
     public float x;
@@ -7,6 +10,13 @@ public class PositioningComponent {
     public float hitboxWidth;
     public float hitboxHeight;
 
+    /**
+     * PositioningComponent
+     * @param x
+     * @param y
+     * @param hitboxH
+     * @param hitboxW
+     */
     public PositioningComponent(int x, int y, int hitboxH, int hitboxW){
         this.x = x;
         this.y = y;
@@ -14,6 +24,10 @@ public class PositioningComponent {
         this.hitboxWidth = hitboxW;
     }
 
+    /**
+     * getters and setters
+     * @return
+     */
     public float getX() {
         return x;
     }

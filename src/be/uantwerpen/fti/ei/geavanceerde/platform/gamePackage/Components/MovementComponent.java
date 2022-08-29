@@ -1,8 +1,11 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components;
-
+/**
+ * MovementComponent
+ * @author Ayoub Aouraghe
+ * */
 public class MovementComponent {
 
-    private  float playerSpeed;
+
     private  boolean inAir;
     public static float airSpeed;
     private  float gravity;
@@ -12,6 +15,9 @@ public class MovementComponent {
     private boolean left,right,jump;
     private int xSpeed;
 
+    /**
+     * MovementComponent
+     */
     public MovementComponent() {
         airSpeed = 0f;
         this.inAir = false;
@@ -23,16 +29,17 @@ public class MovementComponent {
     }
 
 
-
+    /**
+     * getters and setters
+     * @return
+     */
     public boolean isInAir() {return inAir;}
     public void setInAir(boolean inAir) {this.inAir = inAir;}
 
     public float getGravity() {return gravity;}
-    public void setGravity(float gravity) {this.gravity = gravity;}
+
     public float getJumpSpeed() {return jumpSpeed;}
-    public void setJumpSpeed(float jumpSpeed) {this.jumpSpeed = jumpSpeed;}
-    public float getFallSpeedAfterCollision() {return fallSpeedAfterCollision;}
-    public void setFallSpeedAfterCollision(float fallSpeedAfterCollision) {this.fallSpeedAfterCollision = fallSpeedAfterCollision;}
+
     public boolean isMoving() {return isMoving;}
     public void setMoving(boolean moving) {isMoving = moving;}
     public boolean isLeft() {return left;}

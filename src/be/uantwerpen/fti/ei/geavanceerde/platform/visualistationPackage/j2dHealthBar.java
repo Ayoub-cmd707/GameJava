@@ -5,12 +5,20 @@ import be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.enteties.AbstractH
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-
+/**
+ * j2dHealthBar
+ * @author Ayoub Aouraghe
+ * */
 public class j2dHealthBar extends AbstractHealth {
     private final GraphicsContext graphicsC;
     private final BufferedImage health;
     private final Font font;
 
+    /**
+     * j2dHealthBar
+     * @param graphicsContext
+     * @param healthComponent
+     */
     public j2dHealthBar(GraphicsContext graphicsContext,HealthComponent healthComponent) {
         super(healthComponent);
         this.graphicsC = graphicsContext;
@@ -20,15 +28,18 @@ public class j2dHealthBar extends AbstractHealth {
 
     }
 
+    /**
+     * visualize
+     */
     @Override
     public void visualize() {
-        Graphics2D g2d = graphicsC.getG2d();
-        g2d.setFont(font);
-        g2d.setColor(Color.BLACK);
-        g2d.drawString(":",(int)((graphicsC.getFrame().getWidth()/6)),(int)(30));
-        String scr = String.valueOf(GetHealth());
-        g2d.drawString(scr,(int)((graphicsC.getFrame().getWidth()/5.5)),(int)(30));
-        g2d.drawImage(health,(int)((graphicsC.getFrame().getWidth()/7)),(int)(10), null);
+        Graphics2D graphics2D = graphicsC.getG2d();
+        graphics2D.setFont(font);
+        graphics2D.setColor(Color.BLACK);
+        graphics2D.drawString(":",(int)((graphicsC.getFrame().getWidth()/6)),(int)(30));
+        String s = String.valueOf(GetHealth());
+        graphics2D.drawString(s,(int)((graphicsC.getFrame().getWidth()/5.5)),(int)(30));
+        graphics2D.drawImage(health,(int)((graphicsC.getFrame().getWidth()/7)),(int)(10), null);
 
     }
 }

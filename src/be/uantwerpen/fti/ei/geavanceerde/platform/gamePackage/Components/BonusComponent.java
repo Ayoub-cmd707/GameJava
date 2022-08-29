@@ -1,14 +1,26 @@
 package be.uantwerpen.fti.ei.geavanceerde.platform.gamePackage.Components;
 
+/**
+ * BonusComponent
+ * @author Ayoub Aouraghe
+ * */
+
 public class BonusComponent {
     private int bonusCoins;
     private boolean bonusActivation;
 
+    /**
+     * BonusComponent
+     */
     public BonusComponent() {
         bonusCoins = 0;
         bonusActivation = false;
     }
 
+
+    /**
+     * getters and setters
+     */
     public int getBonusCoins() {
         return bonusCoins;
     }
@@ -17,11 +29,5 @@ public class BonusComponent {
         this.bonusCoins = bonusDiamants;
     }
 
-    public boolean isBonusActivation() {
-        return bonusActivation;
-    }
 
-    public void setBonusActivation(boolean bonusActivation) {
-        this.bonusActivation = bonusActivation;
-    }
 }

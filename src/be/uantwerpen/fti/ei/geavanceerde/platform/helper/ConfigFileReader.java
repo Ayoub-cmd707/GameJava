@@ -3,15 +3,28 @@ package be.uantwerpen.fti.ei.geavanceerde.platform.helper;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Scanner;
-
+/**
+ * With help of internet
+ * ConfigFileReader
+ * @author Ayoub Aouraghe
+ * */
 public class ConfigFileReader {
     private static ConfigFileReader configFileReaderInstance;
     private ConfigFileReader() {}
 
+    /**
+     * ConfigFileReader
+     * @return
+     */
     public static ConfigFileReader getConfigFileReaderInstance() {
         return configFileReaderInstance == null ? configFileReaderInstance = new ConfigFileReader() : configFileReaderInstance;
     }
 
+    /**
+     *loadOrCreateConfig function
+     * @param configFile
+     * @return
+     */
     public HashMap<String, Integer> loadOrCreateConfig(final String configFile) {
         HashMap<String, Integer> dataMap = null;
         try {

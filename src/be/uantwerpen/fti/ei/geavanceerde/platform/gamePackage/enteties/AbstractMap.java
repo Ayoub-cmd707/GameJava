@@ -8,12 +8,22 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-
+/**
+ * AbstractMap
+ * @author Ayoub Aouraghe
+ * */
 public abstract class AbstractMap implements Drawable {
     private final int[][][] tilesMap;
     private final LevelComponent levelComponent;
     private int witdthOfTiles, heightOfTiles, sizeOfTiles;
 
+    /**
+     * AbstractMap
+     * @param tilesMap
+     * @param width
+     * @param height
+     * @param size
+     */
     public AbstractMap(int[][][] tilesMap, int width, int height, int size){
         this.tilesMap = tilesMap;
         this.heightOfTiles = height;
@@ -22,6 +32,11 @@ public abstract class AbstractMap implements Drawable {
         this.levelComponent = LevelComponent.getInstance();
     }
 
+    /**
+     * make the image readable for the ui
+     * @param fileName
+     * @return
+     */
     public BufferedImage GetSpriteSheet(String fileName) {
 
         BufferedImage bufferedImage = null;
@@ -35,25 +50,16 @@ public abstract class AbstractMap implements Drawable {
         return bufferedImage;
     }
 
-    public int[][][] getTilesMap() {
-        return tilesMap;
-    }
+    /**
+     * getters and setters
+     * @return
+     */
+
 
     public LevelComponent getLevelComponent() {
         return levelComponent;
     }
 
-    public int getWitdthOfTiles() {
-        return witdthOfTiles;
-    }
-
-    public int getHeightOfTiles() {
-        return heightOfTiles;
-    }
-
-    public int getSizeOfTiles() {
-        return sizeOfTiles;
-    }
 
     public int getSpriteIndex(int level, int x, int y){
         return tilesMap[level][y][x];
